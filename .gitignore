@@ -39,6 +39,7 @@ yarn-error.log*
 
 # local folder
 local
-
+# turbo
+.turbo
 # vercel
 .vercel
