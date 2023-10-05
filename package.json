@@ -3,13 +3,12 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint": "turbo run lint"
   },
   "devDependencies": {
     "eslint": "^8.50.0",
     "prettier": "^3.0.3",
-    "turbo": "latest"
+    "turbo": "1.10.4"
   },
   "packageManager": "pnpm@8.6.10",
   "name": "meowscord"

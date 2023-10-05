@@ -46,3 +46,5 @@
   "exclude": ["./out/**/*", "./node_modules/**/*", "cypress/**/*.ts"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/libs/Env.mjs"]
 }
+
+

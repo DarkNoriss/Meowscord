@@ -20,7 +20,7 @@
         "next/core-web-vitals",
         "plugin:prettier/recommended"
       ],
-      "parserOptions": {
+      "parserOptions": { 
         "project": "./tsconfig.json"
       },
       "rules": {
