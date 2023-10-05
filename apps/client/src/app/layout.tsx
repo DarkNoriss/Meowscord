@@ -1,7 +1,6 @@
 import '@/styles/global.css';
 import '@mantine/core/styles.css';
 
-import { MantineProvider } from '@mantine/core';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
@@ -22,12 +21,10 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MantineProvider>
-          <div className="flex h-screen w-screen bg-gray-600">
-            <NavbarChannels />
-            <div className="flex flex-1">{children}</div>
-          </div>
-        </MantineProvider>
+        <div className="flex h-screen w-screen">
+          <NavbarChannels />
+          <div className="flex flex-1">{children}</div>
+        </div>
       </body>
     </html>
   );

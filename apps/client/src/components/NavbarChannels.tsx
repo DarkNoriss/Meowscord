@@ -1,13 +1,5 @@
-import type { FC } from 'react';
-
-type NavbarChannelsProps = {};
-
-const NavbarChannels: FC<NavbarChannelsProps> = () => {
-  return (
-    <nav className="flex">
-      <div className="w-[72px] bg-gray-900 pt-3" />
-    </nav>
-  );
+const NavbarChannels = () => {
+  return <nav className="-z-10 flex w-[72px] bg-gray-900 pt-3" />;
 };
 
 export default NavbarChannels;
