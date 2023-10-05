@@ -2,7 +2,7 @@ import { createClient } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
 import { migrate } from 'drizzle-orm/libsql/migrator';
 
-import { Env } from './Env.mjs';
+import { Env } from '@/lib/Env.mjs';
 
 const client = createClient({
   url: Env.DATABASE_URL,
