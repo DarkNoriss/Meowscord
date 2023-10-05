@@ -6,7 +6,7 @@ const NavbarFrends = () => {
           className="h-7 w-full bg-gray-900 px-[6px] py-[1px] text-left text-sm text-gray-400"
           type="button"
         >
-          {/* Find or start a conversation */}
+          Find or start a conversation
         </button>
       </div>
       <div className="h-full bg-gray-800" />

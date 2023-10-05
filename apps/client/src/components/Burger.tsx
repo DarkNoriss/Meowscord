@@ -9,7 +9,7 @@ const Burger = () => {
 
   return (
     <button
-      className="h-full rounded active:bg-gray-600"
+      className="block h-full rounded active:bg-gray-600 sm:hidden"
       type="button"
       onClick={toggleNavbar}
     >

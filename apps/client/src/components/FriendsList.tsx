@@ -2,10 +2,12 @@
 
 import Header from '@/components/Header';
 import { cn } from '@/lib/utils';
+import { useAsideStore } from '@/stores/AsideStore';
 import { useNavbarStore } from '@/stores/NavbarStore';
 
 const FriendsList = () => {
   const navbarOpen = useNavbarStore((state) => state.open);
+  const asideOpen = useAsideStore((state) => state.open);
 
   return (
     <div
@@ -16,8 +18,13 @@ const FriendsList = () => {
     >
       <Header />
       <div className="flex flex-1">
-        <main className={cn('flex-1 bg-gray-600', navbarOpen ? '' : '')} />
-        <aside className="w-[340px] bg-slate-900" />
+        <main className="flex-1 bg-gray-600" />
+        <aside
+          className={cn(
+            'bg-slate-900 transition-[width] duration-300 ease-linear',
+            asideOpen ? 'w-[340px]' : 'w-0',
+          )}
+        />
       </div>
     </div>
   );
