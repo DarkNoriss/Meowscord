@@ -13,7 +13,7 @@ const FriendsList = () => {
     <div
       className={cn(
         'z-10 flex flex-1 flex-col transition-[margin] duration-300 ease-linear',
-        navbarOpen ? '' : '-ml-[calc(72px+232px)]',
+        navbarOpen ? '' : '-ml-[calc(72px+232px)] sm:ml-0',
       )}
     >
       <Header />
