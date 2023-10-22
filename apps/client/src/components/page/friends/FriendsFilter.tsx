@@ -25,7 +25,7 @@ const FriendsFilter = () => {
       {filters.map((filter) => (
         <FriendsFilterButton key={filter} label={filter} />
       ))}
-      <FriendsFilterButton label="Add Friend" />
+      <FriendsFilterButton label="Add Friend" classes="bg-green-700" />
     </div>
   );
 };

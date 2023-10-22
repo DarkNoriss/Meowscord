@@ -1,6 +1,6 @@
 'use client';
 
-import Header from '@/components/Header';
+import Header from '@/components/layout/Header';
 import { cn } from '@/lib/utils';
 import { useAsideStore } from '@/stores/AsideStore';
 import { useNavbarStore } from '@/stores/NavbarStore';

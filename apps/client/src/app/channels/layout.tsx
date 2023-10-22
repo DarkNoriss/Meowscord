@@ -1,4 +1,4 @@
-import NavbarChannels from '@/components/NavbarChannels';
+import NavbarChannels from '@/components/layout/navigation/NavbarChannels';
 
 type ChannelsLayoutProps = {
   children: React.ReactNode;

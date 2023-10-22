@@ -1,5 +1,5 @@
-import Burger from '@/components/Burger';
-import FriendsFilter from '@/components/FriendsFilter';
+import Burger from '@/components/layout/navigation/Burger';
+import FriendsFilter from '@/components/page/friends/FriendsFilter';
 import { Separator } from '@/components/ui/Separator';
 
 const Header = () => {
