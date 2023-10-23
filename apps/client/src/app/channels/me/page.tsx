@@ -1,5 +1,5 @@
-import FriendsList from '@/components/page/friends/FriendsList';
 import NavbarFrends from '@/components/layout/navigation/NavbarFrends';
+import FriendsList from '@/components/page/friends/FriendsList';
 
 const MePage = () => {
   return (

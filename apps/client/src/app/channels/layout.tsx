@@ -1,4 +1,4 @@
-import NavbarChannels from '@/components/layout/navigation/NavbarChannels';
+import Navbar from '@/components/layout/navigation/Navbar';
 
 type ChannelsLayoutProps = {
   children: React.ReactNode;
@@ -6,7 +6,7 @@ type ChannelsLayoutProps = {
 const ChannelsLayout = ({ children }: ChannelsLayoutProps) => {
   return (
     <div className="flex h-screen w-screen">
-      <NavbarChannels />
+      <Navbar />
       <div className="flex flex-1">{children}</div>
     </div>
   );
