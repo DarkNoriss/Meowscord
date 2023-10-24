@@ -9,7 +9,7 @@ type FriendsFilterButtonType = {
 const FriendsFilterButton = ({ label, classes }: FriendsFilterButtonType) => {
   return (
     <Button
-      className={cn('h-6 mx-2 bg-none text-muted-foreground text-bol', classes)}
+      className={cn('h-6 mx-1 bg-none text-muted-foreground text-bol', classes)}
       variant="ghost"
     >
       {label}
