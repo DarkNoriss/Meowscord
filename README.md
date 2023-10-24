@@ -1,4 +1,3 @@
-```markdown
 # Meowscord
 
 Meowscord is a Discord-like application built with modern web technologies, designed for seamless communication and real-time interactions. This README provides an overview of the app, its features, and how to set it up for your own use or development.
