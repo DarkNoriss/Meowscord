@@ -1,9 +1,11 @@
 export enum UserStatuses {
   Online = 'online',
   Idle = 'idle',
+  DND = 'dnd',
   Offline = 'offline',
   Mobile = 'mobile',
 }
+
 enum ActivityTypes {
   Playing = 'playing',
   Streaming = 'streaming',
