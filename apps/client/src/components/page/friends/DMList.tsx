@@ -4,14 +4,14 @@ import { Plus } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 import { Button } from '@/components/ui/Button';
-import { generateFakeFriends } from '@/lib/mock';
 import { cn } from '@/lib/utils';
+import { useFriendsStore } from '@/stores/FriendsStore';
 
 import DMFriend from './DMFriend';
 
 const DMList = () => {
   const pathname = usePathname();
-  const friends = generateFakeFriends();
+  const friends = useFriendsStore((state) => state.friendsList);
 
   const isCurrentlyActive = (page: string) => pathname === `/${page}`;
 
