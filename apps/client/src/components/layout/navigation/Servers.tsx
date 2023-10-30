@@ -1,10 +1,12 @@
-import { generateFakeServers } from '@/lib/mock';
-import type { ServerType } from '@/types/server';
+'use client';
+
+import { useServersStore } from '@/stores/ServersStore';
 
 import Server from './Server';
 
 const Servers = () => {
-  const servers: ServerType[] = generateFakeServers();
+  const servers = useServersStore((state) => state.serversList);
+
   return (
     <>
       {servers.map((server) => (
