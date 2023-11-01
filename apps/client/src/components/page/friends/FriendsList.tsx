@@ -47,7 +47,7 @@ const FriendsList = () => {
 
   const onlineFriends = friends
     ?.filter((friend) => friend.status !== 'offline')
-    .sort();
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <div
