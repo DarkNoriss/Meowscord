@@ -4,6 +4,8 @@ import '@mantine/core/styles.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { cn } from '@/lib/utils';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -18,7 +20,14 @@ type RootLayoutProps = {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn(
+          'antialiased min-h-screen bg-foreground',
+          inter.className,
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 };
