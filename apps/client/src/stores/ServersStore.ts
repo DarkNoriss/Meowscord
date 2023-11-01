@@ -1,12 +1,13 @@
 import { create } from 'zustand';
 
-import { generateFakeServers } from '@/lib/mock';
 import type { ServerType } from '@/types/server';
 
 type ServersStoreType = {
-  serversList: ServerType[];
+  servers: null | ServerType[];
+  setServers: (servers: ServerType[]) => void;
 };
 
-export const useServersStore = create<ServersStoreType>(() => ({
-  serversList: generateFakeServers(),
+export const useServersStore = create<ServersStoreType>((set) => ({
+  servers: null,
+  setServers: (servers) => set({ servers }),
 }));

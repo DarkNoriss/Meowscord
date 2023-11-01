@@ -2,8 +2,10 @@
 
 import { Plus } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 
 import { Button } from '@/components/ui/Button';
+import { generateFakeFriends } from '@/lib/mock';
 import { cn } from '@/lib/utils';
 import { useFriendsStore } from '@/stores/FriendsStore';
 
@@ -11,9 +13,14 @@ import DMFriend from './DMFriend';
 
 const DMList = () => {
   const pathname = usePathname();
-  const friends = useFriendsStore((state) => state.friendsList);
+  const friends = useFriendsStore((state) => state.friends);
+  const setFriends = useFriendsStore((state) => state.setFriends);
 
   const isCurrentlyActive = (page: string) => pathname === `/${page}`;
+
+  useEffect(() => {
+    setFriends(generateFakeFriends());
+  }, [setFriends]);
 
   return (
     <div className="flex-1 bg-gray-800 p-2">
@@ -40,7 +47,7 @@ const DMList = () => {
         <Plus size={16} />
       </div>
       <div>
-        {friends.map((friend) => (
+        {friends?.map((friend) => (
           <DMFriend key={friend.id} frienddata={friend} />
         ))}
       </div>

@@ -1,19 +1,23 @@
 'use client';
 
+import { useEffect } from 'react';
+
+import { generateFakeServers } from '@/lib/mock';
 import { useServersStore } from '@/stores/ServersStore';
 
 import Server from './Server';
 
 const Servers = () => {
-  const servers = useServersStore((state) => state.serversList);
+  const servers = useServersStore((state) => state.servers);
+  const setServers = useServersStore((state) => state.setServers);
 
-  return (
-    <>
-      {servers.map((server) => (
-        <Server key={server.id} serverdata={server} />
-      ))}
-    </>
-  );
+  useEffect(() => {
+    setServers(generateFakeServers());
+  }, [setServers]);
+
+  return servers?.map((server) => (
+    <Server key={server.id} serverdata={server} />
+  ));
 };
 
 export default Servers;

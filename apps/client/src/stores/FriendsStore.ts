@@ -1,12 +1,13 @@
 import { create } from 'zustand';
 
-import { generateFakeFriends } from '@/lib/mock';
 import type { UserType } from '@/types/user';
 
 type FriendsStoreType = {
-  friendsList: UserType[];
+  friends: null | UserType[];
+  setFriends: (friends: UserType[]) => void;
 };
 
-export const useFriendsStore = create<FriendsStoreType>(() => ({
-  friendsList: generateFakeFriends(),
+export const useFriendsStore = create<FriendsStoreType>((set) => ({
+  friends: null,
+  setFriends: (friends) => set({ friends }),
 }));
