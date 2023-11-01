@@ -43,8 +43,11 @@ const FriendsList = () => {
   const navbarOpen = useNavbarStore((state) => state.open);
   const asideOpen = useAsideStore((state) => state.open);
 
-  const friends = useFriendsStore((state) => state.friendsList);
-  const onlineFriends = friends.filter((friend) => friend.status !== 'offline');
+  const friends = useFriendsStore((state) => state.friends);
+
+  const onlineFriends = friends
+    ?.filter((friend) => friend.status !== 'offline')
+    .sort();
 
   return (
     <div
@@ -60,11 +63,11 @@ const FriendsList = () => {
             <div className="mb-2 ml-[30px] mr-5 mt-4">SEARCH BUTTON</div>
             <div className="ml-[30px] mr-5 mt-4 pb-2">
               <h2 className="text-xs font-semibold">
-                ONLINE - {onlineFriends.length}
+                ONLINE - {onlineFriends ? onlineFriends.length : '0'}
               </h2>
             </div>
             <div className="mt-2 pb-2 pr-4">
-              {onlineFriends.map((friend) => (
+              {onlineFriends?.map((friend) => (
                 <FriendButton
                   key={`friendButton-${friend.id}`}
                   friendData={friend}
