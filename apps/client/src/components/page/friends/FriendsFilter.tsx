@@ -13,16 +13,22 @@ const FriendsFilterButton = ({ label, classes }: FriendsFilterButtonType) => {
   const setFilter = useFiltersStore((state) => state.setFilter);
 
   const handleOnClick = () => {
+    if (filter === 'Add Friend' && label === 'Add Friend') return;
     setFilter(label);
   };
 
   return (
     <Button
       className={cn(
-        'h-6 mx-1 bg-none text-muted-foreground text-bol px-2',
+        'h-6 mx-2 text-base px-2 font-medium hover:bg-muted-foreground/50 hover:text-muted',
         classes,
-        filter === label ? 'bg-secondary/90 text-secondary-foreground' : '',
-        label === 'Add Friend' ? 'bg-green-700 hover:bg-green-700' : '',
+        filter === label ? 'bg-muted-foreground/50 ' : 'text-muted-foreground',
+        label === 'Add Friend'
+          ? 'bg-green-700 text-muted hover:bg-green-700'
+          : '',
+        label === 'Add Friend' && filter === label
+          ? 'bg-transparent text-green-600 cursor-default hover:bg-transparent hover:text-green-600'
+          : '',
       )}
       variant="ghost"
       onClick={handleOnClick}
