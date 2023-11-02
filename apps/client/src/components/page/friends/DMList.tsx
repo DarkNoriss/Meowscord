@@ -22,26 +22,43 @@ const DMList = () => {
     setFriends(generateFakeFriends());
   }, [setFriends]);
 
+  const renderButtons = () => {
+    const buttons = ['Friends', 'Nitro', 'Store'];
+
+    return buttons.map((button) => {
+      let isActive = false;
+      switch (button) {
+        case 'Friends': {
+          if (isCurrentlyActive('channels/me')) isActive = true;
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+
+      return (
+        <Button
+          className={cn('justify-start')}
+          key={`button-${button}`}
+          variant="ghost"
+        >
+          <span
+            className={
+              (cn('text-base '),
+              isActive ? 'text-primary-foreground' : 'text-muted-foreground')
+            }
+          >
+            {button}
+          </span>
+        </Button>
+      );
+    });
+  };
+
   return (
-    <div className="flex-1 bg-gray-800 p-2">
-      <div className="flex flex-col gap-1">
-        <Button
-          className={cn(
-            'justify-start',
-            isCurrentlyActive('channels/me') ? 'bg-gray-700' : 'bg-gray-800',
-          )}
-        >
-          <span className="text-base">Friends</span>
-        </Button>
-        <Button
-          className={cn(
-            'justify-start',
-            isCurrentlyActive('store') ? 'bg-gray-700' : 'bg-gray-800',
-          )}
-        >
-          <span className="text-base">Nitro</span>
-        </Button>
-      </div>
+    <div className="flex-1 bg-background/[0.15] p-2">
+      <div className="flex flex-col gap-1">{renderButtons()}</div>
       <div className="flex justify-between pb-1 pl-[16px] pr-2 pt-[16px] text-muted-foreground hover:text-primary-foreground">
         <span className="text-xs">DIRECT MESSAGES</span>
         <Plus size={16} />
