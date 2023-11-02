@@ -4,6 +4,8 @@ export enum UserStatuses {
   DND = 'dnd',
   Offline = 'offline',
   Mobile = 'mobile',
+  Pending = 'pending',
+  Blocked = 'blocked',
 }
 
 enum ActivityTypes {

@@ -6,6 +6,8 @@ const translation = {
       dnd: "Don't Disturb",
       offline: 'Offline',
       mobile: 'Mobile',
+      pending: 'Pending',
+      blocked: 'Blocked',
     },
   },
 };
