@@ -20,14 +20,14 @@ const FriendsFilterButton = ({ label, classes }: FriendsFilterButtonType) => {
   return (
     <Button
       className={cn(
-        'h-6 mx-2 text-base px-2 font-medium hover:bg-muted-foreground/50 hover:text-muted',
+        'h-6 mx-2 text-base px-2 font-medium hover:text-primary-foreground hover:bg-primary-foreground/10',
         classes,
-        filter === label ? 'bg-muted-foreground/50 ' : 'text-muted-foreground',
+        filter === label ? 'bg-primary-foreground/10' : 'text-muted-foreground',
         label === 'Add Friend'
-          ? 'bg-green-700 text-muted hover:bg-green-700'
+          ? 'bg-green-600/50 text-muted hover:bg-green-600/50'
           : '',
         label === 'Add Friend' && filter === label
-          ? 'bg-transparent text-green-600 cursor-default hover:bg-transparent hover:text-green-600'
+          ? 'bg-transparent text-green-500 cursor-default hover:bg-transparent hover:text-green-500'
           : '',
       )}
       variant="ghost"
