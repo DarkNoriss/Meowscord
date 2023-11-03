@@ -3,6 +3,7 @@
 import Image from 'next/image';
 
 import Header from '@/components/layout/Header';
+import { Button } from '@/components/ui/Button';
 import { t } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
 import { useAsideStore } from '@/stores/AsideStore';
@@ -12,31 +13,42 @@ import { useNavbarStore } from '@/stores/NavbarStore';
 import { type UserType } from '@/types/user';
 
 const FriendButton = ({ friendData }: { friendData: UserType }) => {
-  const { avatar, name, status } = friendData;
+  const { avatar, name, username, status } = friendData;
 
   return (
-    <div className="ml-[30px] mr-5 flex h-16 flex-1 flex-row">
-      <div className="flex w-full flex-row items-center border-t border-white/10">
-        <div className="mr-3 h-8 w-8 rounded-full">
-          <Image
-            className="rounded-full hover:rounded-2xl"
-            src={avatar!}
-            alt={name}
-            height={64}
-            width={64}
-          />
-        </div>
-        <div className="flex flex-col">
-          <span className="text-base font-semibold text-primary-foreground">
-            {name}
-          </span>
-          <span className="text-sm text-muted-foreground">
-            {t(`user.status.${status}`)}
-          </span>
+    <Button
+      // eslint-disable-next-line tailwindcss/enforces-negative-arbitrary-values
+      className="group -mt-[1px] ml-5 mr-[10px] flex min-h-[62px] flex-1 flex-row rounded-none p-0 hover:rounded-lg hover:bg-primary-foreground/10"
+      variant="ghost"
+    >
+      <div className="mx-[10px] box-border flex min-h-[62px] w-full items-center border-t border-primary-foreground/10">
+        <div className="flex h-full w-full flex-row">
+          <div className="mr-3 h-8 w-8 rounded-full">
+            <Image
+              className="rounded-full hover:rounded-2xl"
+              src={avatar!}
+              alt={name}
+              height={64}
+              width={64}
+            />
+          </div>
+          <div className="flex flex-col items-start">
+            <div className="flex flex-row">
+              <span className="text-base font-semibold text-primary-foreground">
+                {name}
+              </span>
+              <span className="ml-1 text-end text-sm text-muted-foreground">
+                {username}
+              </span>
+            </div>
+            <span className="text-sm text-muted-foreground">
+              {t(`user.status.${status}`)}
+            </span>
+          </div>
         </div>
       </div>
       {/* <div>Buttons</div> */}
-    </div>
+    </Button>
   );
 };
 
@@ -141,7 +153,7 @@ const FriendsList = () => {
             {label}
           </h2>
         </div>
-        <div className="mt-2 pb-2 pr-4">
+        <div className="mt-2 flex flex-col pb-2 pr-4">
           {filteredFriends?.map((friend) => (
             <FriendButton
               key={`friendButton-${friend.id}`}
