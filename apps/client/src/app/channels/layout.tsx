@@ -5,7 +5,7 @@ type ChannelsLayoutProps = {
 };
 const ChannelsLayout = ({ children }: ChannelsLayoutProps) => {
   return (
-    <div className="flex h-screen w-screen">
+    <div className="h-screen w-screen">
       <Navbar />
       <div className="flex flex-1">{children}</div>
     </div>
