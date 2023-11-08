@@ -1,3 +1,4 @@
+import DMLayout from '@/components/islets/dm-layout/DMLayout';
 import Navbar from '@/components/layout/navigation/Navbar';
 
 type ChannelsLayoutProps = {
@@ -5,10 +6,10 @@ type ChannelsLayoutProps = {
 };
 const ChannelsLayout = ({ children }: ChannelsLayoutProps) => {
   return (
-    <div className="h-screen w-screen">
+    <>
       <Navbar />
-      <div className="flex flex-1">{children}</div>
-    </div>
+      <DMLayout>{children}</DMLayout>
+    </>
   );
 };
 

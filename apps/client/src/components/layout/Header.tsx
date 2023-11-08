@@ -2,7 +2,7 @@ import Burger from '@/components/Burger';
 import FriendsFilter from '@/components/page/friends/FriendsFilter';
 import { Separator } from '@/components/ui/Separator';
 
-const Header = () => {
+const HeaderOld = () => {
   return (
     <div className="flex h-12 items-center border-b-[1px] border-b-primary bg-background/20 p-2">
       <Burger />
@@ -16,4 +16,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderOld;
