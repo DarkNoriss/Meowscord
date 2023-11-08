@@ -7,9 +7,10 @@ import { useServersStore } from '@/stores/ServersStore';
 
 import Server from './Server';
 
-const Servers = () => {
+const NavbarServers = () => {
   const servers = useServersStore((state) => state.servers);
   const setServers = useServersStore((state) => state.setServers);
+
 
   useEffect(() => {
     setServers(generateFakeServers());
@@ -20,4 +21,4 @@ const Servers = () => {
   ));
 };
 
-export default Servers;
+export default NavbarServers;
