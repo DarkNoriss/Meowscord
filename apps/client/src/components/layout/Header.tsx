@@ -1,4 +1,4 @@
-import Burger from '@/components/layout/navigation/Burger';
+import Burger from '@/components/Burger';
 import FriendsFilter from '@/components/page/friends/FriendsFilter';
 import { Separator } from '@/components/ui/Separator';
 
