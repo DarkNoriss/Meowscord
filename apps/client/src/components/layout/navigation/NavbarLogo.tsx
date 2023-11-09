@@ -1,7 +1,7 @@
 import NavbarServer from '@/components/layout/navigation/NavbarServer';
 import { Separator } from '@/components/ui/Separator';
 
-const Logo = () => {
+const NavbarLogo = () => {
   return (
     <>
       <NavbarServer
@@ -14,4 +14,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default NavbarLogo;
