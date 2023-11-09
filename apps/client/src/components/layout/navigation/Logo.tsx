@@ -1,14 +1,16 @@
-import { Cat } from 'lucide-react';
-
+import NavbarServer from '@/components/layout/navigation/NavbarServer';
 import { Separator } from '@/components/ui/Separator';
 
 const Logo = () => {
   return (
-    <div className="mb-2 pt-3">
-      {/* <div className="h-12 w-12 rounded-2xl bg-slate-50" /> */}
-      <Cat size={48} className="mb-2 pt-3 " />
-      <Separator />
-    </div>
+    <>
+      <NavbarServer
+        href="/channels/me"
+        tooltipContent="Direct Messages"
+        image={{ alt: 'Meowscord logo', src: '/logo.jpg' }}
+      />
+      <Separator className="mb-2 h-[2px] w-8 bg-muted-foreground" />
+    </>
   );
 };
 
