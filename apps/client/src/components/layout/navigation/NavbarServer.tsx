@@ -26,7 +26,7 @@ const NavbarServer: FC<NavbarServerProps> = ({ image, ...props }) => {
   return (
     <Link
       className={cn(
-        'h-12 w-12 rounded-full p-0 hover:rounded-2xl',
+        'h-12 w-12 rounded-full p-0 hover:rounded-2xl mb-2',
         roundClasses,
       )}
       {...props}
