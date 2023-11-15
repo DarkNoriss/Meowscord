@@ -1,8 +1,10 @@
+import type { ReactNode } from 'react';
+
 import DMLayout from '@/components/islets/dm-layout/DMLayout';
 import Navbar from '@/components/layout/navigation/Navbar';
 
 type ChannelsLayoutProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 const ChannelsLayout = ({ children }: ChannelsLayoutProps) => {
   return (
