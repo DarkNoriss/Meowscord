@@ -1,8 +1,10 @@
 import '@/styles/global.css';
 import '@mantine/core/styles.css';
 
-import type { Metadata } from 'next';
+import { ClerkProvider } from '@clerk/nextjs';
 import { DM_Sans } from 'next/font/google';
+import type { Metadata } from 'next/types';
+import type { ReactNode } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -14,18 +16,23 @@ export const metadata: Metadata = {
 };
 
 type RootLayoutProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en">
-      <body
-        className={cn('antialiased min-h-screen bg-foreground', font.className)}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={cn(
+            'antialiased min-h-screen bg-foreground',
+            font.className,
+          )}
+        >
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 };
 
