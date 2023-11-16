@@ -13,7 +13,7 @@ const AddServer: FC<AddServerProps> = () => {
 
   return (
     <Button
-      className="m-0 h-12 w-12 rounded-full bg-button p-0 hover:rounded-2xl hover:bg-button-hover"
+      className="m-0 h-12 w-12 rounded-full bg-navigation-button p-0 hover:rounded-2xl hover:bg-navigation-button-hover"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
