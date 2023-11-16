@@ -4,7 +4,8 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "shadcn:add": "pnpm --filter client shadcn:add"
+    "shadcn:add": "pnpm --filter client shadcn:add",
+    "update-deps": "pnpm update --filter *"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
