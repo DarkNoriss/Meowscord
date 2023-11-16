@@ -13,5 +13,6 @@
     "turbo": "^1.10.16"
   },
   "packageManager": "pnpm@8.6.10",
-  "name": "meowscord"
+  "name": "meowscord",
+  "author": "DarkNoriss (https://github.com/DarkNoriss)"
 }
