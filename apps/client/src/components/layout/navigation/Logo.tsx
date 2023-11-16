@@ -4,13 +4,13 @@ import Server from './Server';
 
 const NavbarLogo = () => {
   return (
-    <>
+    <li>
       <Server
         href="/channels/me"
         image={{ alt: 'Meowscord logo', src: '/logo.jpg', priority: true }}
       />
-      <Separator className="mb-2 h-[2px] w-8 bg-muted-foreground" />
-    </>
+      <Separator className="mx-auto mb-2 h-[2px] w-8 rounded-full bg-muted-foreground/25" />
+    </li>
   );
 };
 

@@ -4,8 +4,10 @@ import Servers from '@/components/layout/navigation/Servers';
 const Navigation = () => {
   return (
     <nav className="fixed flex h-screen w-[72px] flex-col items-center overflow-y-auto bg-navbar pt-3">
-      <Logo />
-      <Servers />
+      <ul>
+        <Logo />
+        <Servers />
+      </ul>
     </nav>
   );
 };

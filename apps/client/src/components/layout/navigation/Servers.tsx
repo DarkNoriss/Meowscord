@@ -11,11 +11,12 @@ const Servers = () => {
   const { servers } = getData();
 
   return servers?.map((server) => (
-    <Server
-      key={server.id}
-      href={`/channels/${server.id}`}
-      image={{ alt: server.name, src: server.photoUrl }}
-    />
+    <li key={server.id}>
+      <Server
+        href={`/channels/${server.id}`}
+        image={{ alt: server.name, src: server.photoUrl }}
+      />
+    </li>
   ));
 };
 
