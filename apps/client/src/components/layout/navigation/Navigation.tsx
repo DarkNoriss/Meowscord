@@ -1,4 +1,4 @@
-import CreateServer from '@/components/layout/navigation/CreateServer';
+import AddServer from '@/components/layout/navigation/CreateServer';
 import Logo from '@/components/layout/navigation/Logo';
 import Servers from '@/components/layout/navigation/Servers';
 
@@ -8,7 +8,7 @@ const Navigation = () => {
       <ul>
         <Logo />
         <Servers />
-        <CreateServer />
+        <AddServer />
       </ul>
     </nav>
   );
