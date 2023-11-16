@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import Burger from '@/components/Burger';
+// import Burger from '@/components/Burger';
 import { Button } from '@/components/ui/Button';
 
 const HomeHeader = () => {
@@ -9,11 +9,11 @@ const HomeHeader = () => {
       <div>logo</div>
       <div className="flex flex-row">
         <Link className="hover:border-none" href="/channels/me">
-          <Button className="rounded-full bg-primary-foreground text-foreground hover:bg-primary-foreground">
+          <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary">
             Open Meowscord
           </Button>
         </Link>
-        <Burger />
+        {/* <Burger /> */}
       </div>
     </header>
   );
