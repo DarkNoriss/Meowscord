@@ -1,13 +1,9 @@
-import Link from 'next/link';
-
-import { Button } from '@/components/ui/Button';
+import HomeHeader from '@/components/islets/home-header/HomeHeader';
 
 const Page = () => {
   return (
-    <div className="container flex h-screen items-center justify-center">
-      <Link href="/channels/me">
-        <Button size="lg">LINK TO CHANNEL ME</Button>
-      </Link>
+    <div className="container flex h-screen flex-col items-center">
+      <HomeHeader />
     </div>
   );
 };
