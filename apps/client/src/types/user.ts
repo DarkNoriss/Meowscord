@@ -29,7 +29,7 @@ type UserActivity = {
 
 export type UserType = {
   id: string;
-  name: string;
+  fullName: string;
   username: string;
   bio?: string;
   avatar?: string;
