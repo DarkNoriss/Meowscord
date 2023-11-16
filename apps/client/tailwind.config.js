@@ -24,6 +24,19 @@ module.exports = {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        footer: 'hsl(var(--background-footer))',
+        navigation: {
+          DEFAULT: 'hsl(var(--background-navigation))',
+          secondary: 'hsl(var(--background-navigation-secondary))',
+          button: {
+            DEFAULT: 'hsl(var(--background-navigation-button))',
+            hover: 'hsl(var(--background-navigation-button-hover))',
+          },
+        },
+        button: {
+          DEFAULT: 'hsl(var(--background-button))',
+          hover: 'hsl(var(--background-button-hover))',
+        },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',

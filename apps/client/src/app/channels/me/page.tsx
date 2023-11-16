@@ -1,5 +1,7 @@
+import DMNavigation from '@/components/islets/dm-navigation/DMNavigation';
+
 const MePage = () => {
-  return null;
+  return <DMNavigation />;
 };
 
 export default MePage;

@@ -1,6 +1,6 @@
 export type ServerType = {
   id: string;
   name: string;
-  photo: string;
-  messages: number;
+  photoUrl: string;
+  messageCount: number;
 };

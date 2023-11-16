@@ -52,8 +52,18 @@ a:hover {
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
+    --background: 223 7% 21%;
     --foreground: 210 20% 98%;
+
+    --background-footer: 228 7% 15%;
+
+    --background-navigation: 225 6% 13%;
+    --background-navigation-secondary: 220 7% 18%;
+
+    --background-navigation-button: 223 7% 21%;
+    --background-navigation-button-hover: 145 65% 39%;
+
+    --background-button-hover: 228 6% 33%;
 
     --card: 224 71.4% 4.1%;
     --card-foreground: 210 20% 98%;
@@ -61,13 +71,13 @@ a:hover {
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 20% 98%;
 
-    --primary: 210 20% 98%;
+    --primary: 220, 13%, 95%;
     --primary-foreground: 220.9 39.3% 11%;
 
     --secondary: 215 27.9% 16.9%;
     --secondary-foreground: 210 20% 98%;
 
-    --muted: 215 27.9% 16.9%;
+    --muted: 215 9% 73%;
     --muted-foreground: 217.9 10.6% 64.9%;
 
     --accent: 215 27.9% 16.9%;
