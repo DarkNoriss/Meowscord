@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/extensions
 import './src/lib/Env.mjs';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
