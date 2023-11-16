@@ -10,6 +10,7 @@
     "shadcn:add": "pnpm dlx shadcn-ui@latest add"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^14.0.2",
     "@clerk/nextjs": "^4.27.1",
     "@clerk/themes": "^1.7.9",
     "@faker-js/faker": "^8.3.1",
@@ -39,7 +40,6 @@
     "zustand": "^4.4.6"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^14.0.2",
     "@total-typescript/ts-reset": "^0.5.1",
     "@types/node": "^20.9.0",
     "@types/react": "^18.2.37",
