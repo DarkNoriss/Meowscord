@@ -25,9 +25,13 @@ module.exports = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         footer: 'hsl(var(--background-footer))',
-        navbar: {
-          DEFAULT: 'hsl(var(--background-navbar))',
-          secondary: 'hsl(var(--background-navbar-secondary))',
+        navigation: {
+          DEFAULT: 'hsl(var(--background-navigation))',
+          secondary: 'hsl(var(--background-navigation-secondary))',
+          button: {
+            DEFAULT: 'hsl(var(--background-navigation-button))',
+            hover: 'hsl(var(--background-navigation-button-hover))',
+          },
         },
         button: {
           DEFAULT: 'hsl(var(--background-button))',

@@ -57,11 +57,13 @@ a:hover {
 
     --background-footer: 228 7% 15%;
 
-    --background-navbar: 225 6% 13%;
-    --background-navbar-secondary: 220 7% 18%;
+    --background-navigation: 225 6% 13%;
+    --background-navigation-secondary: 220 7% 18%;
 
-    --background-button: 223 7% 21%;
-    --background-button-hover: 145 65% 39%;
+    --background-navigation-button: 223 7% 21%;
+    --background-navigation-button-hover: 145 65% 39%;
+
+    --background-button-hover: 228 6% 33%;
 
     --card: 224 71.4% 4.1%;
     --card-foreground: 210 20% 98%;
