@@ -29,6 +29,10 @@ module.exports = {
           DEFAULT: 'hsl(var(--background-navbar))',
           secondary: 'hsl(var(--background-navbar-secondary))',
         },
+        button: {
+          DEFAULT: 'hsl(var(--background-button))',
+          hover: 'hsl(var(--background-button-hover))',
+        },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
