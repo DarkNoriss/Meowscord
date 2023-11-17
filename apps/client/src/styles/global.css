@@ -55,8 +55,6 @@ a:hover {
     --background: 223 7% 21%;
     --foreground: 210 20% 98%;
 
-    --background-footer: 228 7% 15%;
-
     --background-navigation: 225 6% 13%;
     --background-navigation-secondary: 220 7% 18%;
 
@@ -68,7 +66,7 @@ a:hover {
     --card: 224 71.4% 4.1%;
     --card-foreground: 210 20% 98%;
 
-    --popover: 224 71.4% 4.1%;
+    --popover: 228 7% 15%;
     --popover-foreground: 210 20% 98%;
 
     --primary: 220, 13%, 95%;
