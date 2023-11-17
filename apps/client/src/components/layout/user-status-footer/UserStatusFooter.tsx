@@ -34,20 +34,20 @@ const UserStatusFooter = async () => {
               <AvatarFallback>{user.username}</AvatarFallback>
             </Avatar>
             <div className="flex flex-col items-start py-1 pl-2">
-              <span className="text-sm text-primary">{user.firstName}</span>
+              <span className="text-sm text-primary">{`${user.firstName} ${user.lastName}`}</span>
               <span className="text-xs text-muted">{user.username}</span>
             </div>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="mb-4 h-[590px] w-[348px] p-1">
           <DropdownMenuLabel>
-            <Avatar>
+            <Avatar className="h-20 w-20">
               <AvatarImage src={user.imageUrl} />
               <AvatarFallback>{user.username}</AvatarFallback>
             </Avatar>
           </DropdownMenuLabel>
           <DropdownMenuLabel>
-            <span>{user.firstName}</span>
+            <span>{`${user.firstName} ${user.lastName}`}</span>
           </DropdownMenuLabel>
           <DropdownMenuLabel>
             <span>{user.username}</span>
