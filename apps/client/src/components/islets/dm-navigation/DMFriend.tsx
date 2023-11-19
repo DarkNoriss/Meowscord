@@ -2,9 +2,7 @@ import Image from 'next/image';
 
 import type { UserType } from '@/types/user';
 
-type DMFriendProps = {
-  friendData: UserType;
-};
+type DMFriendProps = { friendData: UserType };
 
 const DMFriend = ({ friendData }: DMFriendProps) => {
   const { avatar, fullName } = friendData;
