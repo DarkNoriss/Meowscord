@@ -12,24 +12,31 @@ const DMMenu = () => {
   const menuButtons = ['Friends', 'Nitro', 'Store'];
   const pathname = usePathname();
 
-  return menuButtons.map((button) => {
-    const isActive =
-      button === 'Friends' && isCurrentlyActive(pathname, 'channels/me');
+  return (
+    <div className="flex w-full flex-col">
+      {menuButtons.map((button) => {
+        const isActive =
+          button === 'Friends' && isCurrentlyActive(pathname, 'channels/me');
 
-    return (
-      <Button
-        key={`button-${button}`}
-        className={cn('justify-start')}
-        variant="ghost"
-      >
-        <span
-          className={cn('text-base', isActive ? 'text-primary' : 'text-muted')}
-        >
-          {button}
-        </span>
-      </Button>
-    );
-  });
+        return (
+          <Button
+            className={cn('justify-start')}
+            variant="ghost"
+            key={`button-${button}`}
+          >
+            <span
+              className={cn(
+                'text-base',
+                isActive ? 'text-primary' : 'text-muted',
+              )}
+            >
+              {button}
+            </span>
+          </Button>
+        );
+      })}
+    </div>
+  );
 };
 
 export default DMMenu;
