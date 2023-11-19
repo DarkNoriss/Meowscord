@@ -2,9 +2,8 @@ import type { ReactNode } from 'react';
 
 import Navigation from '@/components/layout/navigation/Navigation';
 
-type ChannelsLayoutProps = {
-  children: ReactNode;
-};
+type ChannelsLayoutProps = { children: ReactNode };
+
 const ChannelsLayout = ({ children }: ChannelsLayoutProps) => {
   return (
     <>
