@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import type { FC } from 'react';
 
 import type { UserType } from '@/types/user';
 
@@ -7,7 +6,7 @@ type DMFriendProps = {
   friendData: UserType;
 };
 
-const DMFriend: FC<DMFriendProps> = ({ friendData }: DMFriendProps) => {
+const DMFriend = ({ friendData }: DMFriendProps) => {
   const { avatar, fullName } = friendData;
 
   return (

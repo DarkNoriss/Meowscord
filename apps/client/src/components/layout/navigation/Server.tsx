@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { ComponentPropsWithoutRef, FC } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -12,7 +12,7 @@ type NavbarServerProps = {
   };
 } & ComponentPropsWithoutRef<typeof Link>;
 
-const Server: FC<NavbarServerProps> = ({ image, ...props }) => {
+const Server = ({ image, ...props }: NavbarServerProps) => {
   const isActive = () => {
     return false;
   };
