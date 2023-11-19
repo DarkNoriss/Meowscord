@@ -1,4 +1,5 @@
 import { generateFakeServers } from '@/lib/mock';
+import type { ServerType } from '@/types/server';
 
 import Server from './Server';
 
@@ -10,7 +11,7 @@ const getData = () => {
 const Servers = () => {
   const { servers } = getData();
 
-  return servers?.map((server) => (
+  return servers?.map((server: ServerType) => (
     <li key={server.id}>
       <Server
         href={`/channels/${server.id}`}
