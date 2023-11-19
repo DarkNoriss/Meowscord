@@ -1,8 +1,10 @@
 import type { HTMLAttributes } from 'react';
 
-type DMHeaderProps = HTMLAttributes<HTMLDivElement>;
+type NavigationHeaderWrapperProps = HTMLAttributes<HTMLDivElement>;
 
-const DMHeader = ({ ...props }: DMHeaderProps) => {
+const NavigationHeaderWrapper = ({
+  ...props
+}: NavigationHeaderWrapperProps) => {
   return (
     <div
       className="flex h-12 items-center border-b-2 border-navigation bg-navigation-secondary px-[10px]"
@@ -11,4 +13,4 @@ const DMHeader = ({ ...props }: DMHeaderProps) => {
   );
 };
 
-export default DMHeader;
+export default NavigationHeaderWrapper;

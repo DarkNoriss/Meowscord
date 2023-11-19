@@ -1,8 +1,9 @@
 import type { FC, PropsWithChildren } from 'react';
 
-import DMHeader from '@/components/islets/dm-navigation/DMHeader';
+import NavigationBodyWrapper from '@/components/layout/secondary-navigation/NavigationBodyWrapper';
+import NavigationHeaderWrapper from '@/components/layout/secondary-navigation/NavigationHeaderWrapper';
+import NavigationWrapper from '@/components/layout/secondary-navigation/NavigationWrapper';
 import UserStatusFooter from '@/components/layout/user-status-footer/UserStatusFooter';
-import NavigationWrapper from '@/components/NavigationWrapper';
 import SearchModal from '@/components/SearchModal';
 
 type DMNavigationProps = PropsWithChildren;
@@ -10,13 +11,13 @@ type DMNavigationProps = PropsWithChildren;
 const DMNavigation: FC<DMNavigationProps> = () => {
   return (
     <NavigationWrapper>
-      <DMHeader>
+      <NavigationHeaderWrapper>
         <SearchModal />
-      </DMHeader>
-      <div className="flex-1 overflow-y-auto">
+      </NavigationHeaderWrapper>
+      <NavigationBodyWrapper>
         <div>.</div>
         <div>.</div>
-      </div>
+      </NavigationBodyWrapper>
       <UserStatusFooter />
     </NavigationWrapper>
   );
