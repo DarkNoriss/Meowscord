@@ -6,6 +6,8 @@ import NavigationWrapper from '@/components/layout/secondary-navigation/Navigati
 import UserStatusFooter from '@/components/layout/user-status-footer/UserStatusFooter';
 import SearchModal from '@/components/SearchModal';
 
+import DMFriendsList from './DMFriendsList';
+
 type DMNavigationProps = PropsWithChildren;
 
 const DMNavigation: FC<DMNavigationProps> = () => {
@@ -15,8 +17,7 @@ const DMNavigation: FC<DMNavigationProps> = () => {
         <SearchModal />
       </NavigationHeaderWrapper>
       <NavigationBodyWrapper>
-        <div>.</div>
-        <div>.</div>
+        <DMFriendsList />
       </NavigationBodyWrapper>
       <UserStatusFooter />
     </NavigationWrapper>
