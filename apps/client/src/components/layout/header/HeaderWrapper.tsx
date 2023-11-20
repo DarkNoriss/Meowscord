@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 
 type HeaderWrapperProps = {
-  className: string;
+  className?: string;
 } & HTMLAttributes<HTMLElement>;
 
 const HeaderWrapper = ({ className, ...props }: HeaderWrapperProps) => {
