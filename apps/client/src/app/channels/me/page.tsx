@@ -1,11 +1,11 @@
-import ChannelPage from '@/components/islets/channel-page/ChannelPage';
 import DMNavigation from '@/components/islets/dm-navigation/DMNavigation';
+import DMPage from '@/components/islets/dm-page/DMPage';
 
 const MePage = () => {
   return (
     <>
       <DMNavigation />
-      <ChannelPage />
+      <DMPage />
     </>
   );
 };
