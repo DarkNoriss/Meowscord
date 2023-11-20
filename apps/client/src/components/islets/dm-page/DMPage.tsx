@@ -13,7 +13,6 @@ const DMPage = () => {
           Friends
         </span>
         <Separator className="mx-2 h-6 w-[1px]" orientation="vertical" />
-        DMPage
       </PageHeaderWrapper>
     </PageWrapper>
   );
