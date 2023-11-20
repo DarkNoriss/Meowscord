@@ -1,12 +1,13 @@
-import type { PropsWithChildren } from 'react';
+import type { HTMLAttributes } from 'react';
 
-type NavigationWrapperProps = PropsWithChildren;
+type NavigationWrapperProps = HTMLAttributes<HTMLDivElement>;
 
-const NavigationWrapper = ({ children }: NavigationWrapperProps) => {
+const NavigationWrapper = ({ ...props }: NavigationWrapperProps) => {
   return (
-    <div className="fixed left-[72px] flex h-full w-60 flex-col bg-navigation-secondary">
-      {children}
-    </div>
+    <div
+      className="fixed left-[72px] flex h-full w-60 flex-col bg-navigation-secondary"
+      {...props}
+    />
   );
 };
 
