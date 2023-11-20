@@ -1,6 +1,6 @@
 'use client';
 
-import { Menu } from 'lucide-react';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
 import { Button } from '@/components/ui/Button';
 import { useNavbarStore } from '@/stores/NavbarStore';
@@ -15,7 +15,7 @@ const Burger = () => {
       onClick={toggleNavbar}
       variant="ghost"
     >
-      <Menu className="h-6 w-6" color="#9ca3af" />
+      <RxHamburgerMenu className="h-6 w-6" color="#9ca3af" />
     </Button>
   );
 };
