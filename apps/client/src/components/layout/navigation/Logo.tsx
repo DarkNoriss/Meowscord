@@ -9,7 +9,7 @@ const NavbarLogo = () => {
         href="/channels/me"
         image={{ alt: 'Meowscord logo', src: '/logo.jpg', priority: true }}
       />
-      <Separator className="mx-auto mb-2 h-[2px] w-8 rounded-full bg-muted-foreground/25" />
+      <Separator className="mx-auto mb-2 h-[2px] w-8" />
     </li>
   );
 };
