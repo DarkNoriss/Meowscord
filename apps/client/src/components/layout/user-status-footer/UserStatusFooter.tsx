@@ -88,9 +88,7 @@ const UserStatusFooter = async () => {
             <span>Set Custom Status</span>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-
           <LogoutButton />
-
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <span>Copy User ID</span>
