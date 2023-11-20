@@ -1,4 +1,4 @@
-import { Plus } from 'lucide-react';
+import { LuPlus } from 'react-icons/lu';
 
 import DMFriend from '@/components/islets/dm-navigation/DMFriend';
 import { generateFakeFriends } from '@/lib/mock';
@@ -16,7 +16,7 @@ const DMFriendsList = () => {
     <>
       <div className="flex justify-between pb-1 pl-[16px] pr-2 pt-[16px] text-muted hover:text-primary">
         <span className="text-xs">DIRECT MESSAGES</span>
-        <Plus size={16} />
+        <LuPlus size={16} />
       </div>
       <ul>
         {friends.map((friend: UserType) => (
