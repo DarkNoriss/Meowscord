@@ -2,9 +2,7 @@ import { auth } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 import type { ReactNode } from 'react';
 
-type LayoutProps = {
-  children: ReactNode;
-};
+type LayoutProps = { children: ReactNode };
 
 const Layout = ({ children }: LayoutProps) => {
   const { userId } = auth();

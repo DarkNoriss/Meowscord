@@ -17,9 +17,7 @@ export const metadata: Metadata = {
   description: 'Text with ur meow frens!',
 };
 
-type RootLayoutProps = {
-  children: ReactNode;
-};
+type RootLayoutProps = { children: ReactNode };
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (

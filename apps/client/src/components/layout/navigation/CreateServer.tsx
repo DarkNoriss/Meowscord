@@ -1,23 +1,11 @@
-'use client';
-
-import { PlusIcon } from 'lucide-react';
-import type { FC } from 'react';
-import { useState } from 'react';
+import { LuPlus } from 'react-icons/lu';
 
 import { Button } from '@/components/ui/Button';
 
-type AddServerProps = {};
-
-const AddServer: FC<AddServerProps> = () => {
-  const [hovered, setHovered] = useState(false);
-
+const AddServer = () => {
   return (
-    <Button
-      className="m-0 h-12 w-12 rounded-full bg-navigation-button p-0 hover:rounded-2xl hover:bg-navigation-button-hover"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <PlusIcon color={hovered ? '#FFFFFF' : '#23A559'} />
+    <Button className="m-0 mb-2 h-12 w-12 rounded-full bg-navigation-button p-0 text-green-600 hover:rounded-2xl hover:bg-navigation-button-hover hover:text-primary">
+      <LuPlus size={24} />
     </Button>
   );
 };

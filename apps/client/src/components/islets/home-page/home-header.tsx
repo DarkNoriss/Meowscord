@@ -1,11 +1,17 @@
 import Link from 'next/link';
+import type { HTMLAttributes } from 'react';
 
 // import Burger from '@/components/Burger';
 import { Button } from '@/components/ui/Button';
 
-const HomeHeader = () => {
+type HomeHeaderProps = HTMLAttributes<HTMLElement>;
+
+const HomeHeader = ({ ...props }: HomeHeaderProps) => {
   return (
-    <header className="flex h-20 w-full flex-row items-center justify-between">
+    <header
+      className="flex h-20 w-full flex-row items-center justify-between"
+      {...props}
+    >
       <div>logo</div>
       <div className="flex flex-row">
         <Link className="hover:border-none" href="/channels/me">

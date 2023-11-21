@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { ComponentPropsWithoutRef, FC } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -12,7 +12,7 @@ type NavbarServerProps = {
   };
 } & ComponentPropsWithoutRef<typeof Link>;
 
-const Server: FC<NavbarServerProps> = ({ image, ...props }) => {
+const Server = ({ image, ...props }: NavbarServerProps) => {
   const isActive = () => {
     return false;
   };
@@ -22,13 +22,7 @@ const Server: FC<NavbarServerProps> = ({ image, ...props }) => {
     : 'rounded-full hover:rounded-2xl';
 
   return (
-    <Link
-      className={cn(
-        'h-12 w-12 rounded-full p-0 hover:rounded-2xl',
-        roundClasses,
-      )}
-      {...props}
-    >
+    <Link className={cn('h-12 w-12 p-0', roundClasses)} {...props}>
       <Image
         className={cn('mb-2', roundClasses)}
         height={48}

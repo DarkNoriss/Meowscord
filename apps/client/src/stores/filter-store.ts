@@ -7,7 +7,7 @@ type FiltersStoreType = {
   setFilter: (filter: Filters) => void;
 };
 
-export const useFiltersStore = create<FiltersStoreType>((set) => ({
+export const useFriendFiltersStore = create<FiltersStoreType>((set) => ({
   filter: 'Online',
   setFilter: (filter) => set({ filter }),
 }));
