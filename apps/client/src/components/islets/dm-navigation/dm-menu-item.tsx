@@ -8,21 +8,14 @@ import type { IconBaseProps } from 'react-icons';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 
-const IconFriend = dynamic(() =>
-  import('react-icons/bs').then((m) => m.BsPersonFill),
-);
-const IconNitro = dynamic(() => import('react-icons/fa').then((m) => m.FaCar));
-const IconStore = dynamic(() =>
-  import('react-icons/bi').then((m) => m.BiSolidStore),
-);
 type IconComponents = {
   [key: string]: ComponentType<IconBaseProps>;
 };
 
 const iconComponents: IconComponents = {
-  Friends: IconFriend,
-  Nitro: IconNitro,
-  Store: IconStore,
+  Friends: dynamic(() => import('react-icons/bs').then((m) => m.BsPersonFill)),
+  Nitro: dynamic(() => import('react-icons/fa').then((m) => m.FaCar)),
+  Store: dynamic(() => import('react-icons/bi').then((m) => m.BiSolidStore)),
 };
 
 type Paths = {
