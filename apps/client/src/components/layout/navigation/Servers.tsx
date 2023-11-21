@@ -4,7 +4,7 @@ import type { ServerType } from '@/types/server';
 import Server from './Server';
 
 const getData = () => {
-  const servers = generateFakeServers(10);
+  const servers = generateFakeServers(30);
   return { servers };
 };
 
