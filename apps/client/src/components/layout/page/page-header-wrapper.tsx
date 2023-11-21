@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-import HeaderWrapper from '@/components/layout/header/HeaderWrapper';
+import HeaderWrapper from '@/components/layout/header/header-wrapper';
 
 type PageHeaderWrapperProps = HTMLAttributes<HTMLElement>;
 
