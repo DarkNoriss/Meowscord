@@ -7,6 +7,6 @@ export const metadata: Metadata = {
     'Effortlessly create an account through our intuitive sign-up process.',
 };
 
-const Page = () => <SignUp />;
+const Page = () => <SignUp path="/sign-up" routing="path" />;
 
 export default Page;

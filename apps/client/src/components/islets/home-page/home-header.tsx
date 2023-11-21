@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { SignInButton } from '@clerk/nextjs';
 import type { HTMLAttributes } from 'react';
 
 // import Burger from '@/components/Burger';
@@ -14,11 +14,11 @@ const HomeHeader = ({ ...props }: HomeHeaderProps) => {
     >
       <div>logo</div>
       <div className="flex flex-row">
-        <Link className="hover:border-none" href="/channels/me">
+        <SignInButton mode="modal">
           <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary">
             Open Meowscord
           </Button>
-        </Link>
+        </SignInButton>
         {/* <Burger /> */}
       </div>
     </header>
