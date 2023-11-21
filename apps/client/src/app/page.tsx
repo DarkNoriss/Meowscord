@@ -1,4 +1,4 @@
-import HomeHeader from '@/components/islets/home-page/HomeHeader';
+import HomeHeader from '@/components/islets/home-page/home';
 
 const Page = () => {
   return (
