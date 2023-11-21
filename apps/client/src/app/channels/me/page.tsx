@@ -1,4 +1,4 @@
-import DMNavigation from '@/components/islets/dm-navigation/DMNavigation';
+import DMNavigation from '@/components/islets/dm-navigation/dm-navigation';
 import DMPage from '@/components/islets/dm-page/dm-page';
 
 const MePage = () => {

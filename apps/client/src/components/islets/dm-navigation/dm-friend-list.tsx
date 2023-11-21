@@ -1,6 +1,6 @@
 import { LuPlus } from 'react-icons/lu';
 
-import DMFriend from '@/components/islets/dm-navigation/DMFriend';
+import DMFriend from '@/components/islets/dm-navigation/dm-friend';
 import { generateFakeFriends } from '@/lib/mock';
 import type { UserType } from '@/types/user';
 

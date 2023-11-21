@@ -1,5 +1,5 @@
-import DMFriendsList from '@/components/islets/dm-navigation/DMFriendsList';
-import DMMenu from '@/components/islets/dm-navigation/DMMenu';
+import DMFriendsList from '@/components/islets/dm-navigation/dm-friend-list';
+import DMMenu from '@/components/islets/dm-navigation/dm-menu';
 import UserStatusFooter from '@/components/islets/user-status-footer/user-status-footer';
 import NavigationBodyWrapper from '@/components/layout/secondary-navigation/NavigationBodyWrapper';
 import NavigationHeaderWrapper from '@/components/layout/secondary-navigation/NavigationHeaderWrapper';
