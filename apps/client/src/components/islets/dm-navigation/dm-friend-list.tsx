@@ -5,7 +5,7 @@ import { generateFakeFriends } from '@/lib/mock';
 import type { UserType } from '@/types/user';
 
 const getData = () => {
-  const friends = generateFakeFriends(10);
+  const friends = generateFakeFriends(40);
   return { friends };
 };
 
