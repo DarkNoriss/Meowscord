@@ -1,16 +1,13 @@
+'use client';
+
+import { useQuery } from '@tanstack/react-query';
 import { LuPlus } from 'react-icons/lu';
 
 import DMNavigationFriendListItem from '@/components/islets/dm-navigation/dm-navigation-friend-list-item';
-import { generateFakeFriends } from '@/lib/mock';
 import type { UserType } from '@/types/user';
 
-const getData = () => {
-  const friends = generateFakeFriends(40);
-  return { friends };
-};
-
 const DMNavigationFriendsList = () => {
-  const { friends } = getData();
+  const { data } = useQuery<UserType[]>({ queryKey: ['friends'] });
 
   return (
     <>
@@ -19,7 +16,7 @@ const DMNavigationFriendsList = () => {
         <LuPlus size={16} />
       </div>
       <ul>
-        {friends.map((friend: UserType) => (
+        {data?.map((friend: UserType) => (
           <li key={friend.id}>
             <DMNavigationFriendListItem friendData={friend} />
           </li>
