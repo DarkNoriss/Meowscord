@@ -1,4 +1,5 @@
-import { SignInButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
+import Link from 'next/link';
 import type { HTMLAttributes } from 'react';
 
 // import Burger from '@/components/Burger';
@@ -14,11 +15,20 @@ const HomeHeader = ({ ...props }: HomeHeaderProps) => {
     >
       <div>logo</div>
       <div className="flex flex-row">
-        <SignInButton mode="modal">
-          <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary">
-            Open Meowscord
-          </Button>
-        </SignInButton>
+        <SignedOut>
+          <SignInButton mode="modal">
+            <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary">
+              Open Meowscord
+            </Button>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+          <Link className="hover:border-none" href="/channels/me">
+            <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary">
+              Open Meowscord
+            </Button>
+          </Link>
+        </SignedIn>
         {/* <Burger /> */}
       </div>
     </header>
