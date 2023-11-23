@@ -2,18 +2,48 @@
 
 import { useQuery } from '@tanstack/react-query';
 
-import type { UserType } from '@/types/user';
+import DMPageFriendListItem from '@/components/islets/dm-page/dm-page-friend-list-item';
+import DMPageFriendListLabel from '@/components/islets/dm-page/dm-page-friend-list-label';
+import DmPageFriendSearch from '@/components/islets/dm-page/dm-page-friend-search';
+import { useFriendFiltersStore } from '@/stores/filter-store';
+import { type UserType } from '@/types/user';
 
-const DmPageFriendList = () => {
+const filterFunctions = {
+  Online: (friend: UserType) =>
+    friend.status !== 'offline' &&
+    friend.status !== 'pending' &&
+    friend.status !== 'blocked',
+  All: (friend: UserType) =>
+    friend.status !== 'pending' && friend.status !== 'blocked',
+  Pending: (friend: UserType) => friend.status === 'pending',
+  Blocked: (friend: UserType) => friend.status === 'blocked',
+  'Add Friend': () => false,
+};
+
+const DMPageFriendList = () => {
   const { data } = useQuery<UserType[]>({ queryKey: ['friends'] });
+  const filter = useFriendFiltersStore((state) => state.filter);
+
+  if (!data) return null;
+
+  const filterFunction = filterFunctions[filter];
+
+  const filteredData: UserType[] =
+    data
+      ?.filter(filterFunction)
+      .sort((a, b) => a.fullName.localeCompare(b.fullName)) ?? [];
 
   return (
-    <div className="mb-2 ml-[30px] mr-5 mt-4 h-full overflow-y-auto">
-      {data?.map((friend: UserType) => (
-        <div key={friend.id}>{friend.fullName}</div>
-      ))}
-    </div>
+    <>
+      <DmPageFriendSearch />
+      <DMPageFriendListLabel count={filteredData.length} />
+      <div className="mt-2 h-full overflow-y-auto pb-2">
+        {filteredData.map((friend: UserType) => (
+          <DMPageFriendListItem friendData={friend} key={friend.id} />
+        ))}
+      </div>
+    </>
   );
 };
 
-export default DmPageFriendList;
+export default DMPageFriendList;

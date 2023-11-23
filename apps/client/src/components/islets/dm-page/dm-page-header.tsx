@@ -18,7 +18,7 @@ const DMPageHeader = () => {
     <PageHeaderWrapper>
       <BsPersonFill className="mx-2 text-muted" size={24} />
       <span className="mr-2 text-base font-semibold text-primary">Friends</span>
-      <Separator className="mx-2 h-6 w-[1px]" orientation="vertical" />
+      <Separator className="mx-2 h-6" orientation="vertical" />
       <div className="flex">
         {filters.map((filter) => (
           <DMPageHeaderFilterButton key={filter} label={filter} />
