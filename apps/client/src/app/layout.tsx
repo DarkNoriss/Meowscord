@@ -7,7 +7,7 @@ import { DM_Sans } from 'next/font/google';
 import type { Metadata } from 'next/types';
 import type { ReactNode } from 'react';
 
-import { ThemeProvider } from '@/components/ThemeProvider';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 import { cn } from '@/lib/utils';
 
 const font = DM_Sans({ subsets: ['latin'] });
