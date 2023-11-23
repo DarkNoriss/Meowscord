@@ -12,7 +12,7 @@ const DMNavigationFriendListItem = ({ friendData }: DMFriendProps) => {
       <div className="shrink-0">
         <Image
           className="mr-3 h-8 w-8 rounded-full"
-          src={avatar!}
+          src={avatar}
           height={32}
           width={32}
           alt={fullName}

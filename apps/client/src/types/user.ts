@@ -32,7 +32,7 @@ export type UserType = {
   fullName: string;
   username: string;
   bio?: string;
-  avatar?: string;
+  avatar: string;
   status: UserStatuses;
   activity?: UserActivity;
 };
