@@ -4,7 +4,7 @@ import type { ComponentPropsWithoutRef } from 'react';
 
 import { cn } from '@/lib/utils';
 
-type NavbarServerProps = {
+type NavigationServerProps = {
   image: {
     src: string;
     alt: string;
@@ -12,7 +12,7 @@ type NavbarServerProps = {
   };
 } & ComponentPropsWithoutRef<typeof Link>;
 
-const Server = ({ image, ...props }: NavbarServerProps) => {
+const NavigationServer = ({ image, ...props }: NavigationServerProps) => {
   const isActive = () => {
     return false;
   };
@@ -35,4 +35,4 @@ const Server = ({ image, ...props }: NavbarServerProps) => {
   );
 };
 
-export default Server;
+export default NavigationServer;

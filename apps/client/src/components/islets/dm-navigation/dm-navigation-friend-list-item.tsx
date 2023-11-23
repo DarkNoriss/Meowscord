@@ -4,7 +4,7 @@ import type { UserType } from '@/types/user';
 
 type DMFriendProps = { friendData: UserType };
 
-const DMFriend = ({ friendData }: DMFriendProps) => {
+const DMNavigationFriendListItem = ({ friendData }: DMFriendProps) => {
   const { avatar, fullName } = friendData;
 
   return (
@@ -12,7 +12,7 @@ const DMFriend = ({ friendData }: DMFriendProps) => {
       <div className="shrink-0">
         <Image
           className="mr-3 h-8 w-8 rounded-full"
-          src={avatar!}
+          src={avatar}
           height={32}
           width={32}
           alt={fullName}
@@ -23,4 +23,4 @@ const DMFriend = ({ friendData }: DMFriendProps) => {
   );
 };
 
-export default DMFriend;
+export default DMNavigationFriendListItem;

@@ -7,6 +7,6 @@ export const metadata: Metadata = {
     'Seamlessly sign in to your account with our user-friendly login process.',
 };
 
-const Page = () => <SignIn />;
+const Page = () => <SignIn path="/sign-in" routing="path" />;
 
 export default Page;

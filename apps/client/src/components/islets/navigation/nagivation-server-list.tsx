@@ -1,19 +1,18 @@
+import NavigationServer from '@/components/islets/navigation/navigation-server';
 import { generateFakeServers } from '@/lib/mock';
 import type { ServerType } from '@/types/server';
-
-import Server from './Server';
 
 const getData = () => {
   const servers = generateFakeServers(30);
   return { servers };
 };
 
-const Servers = () => {
+const NavigationServerList = () => {
   const { servers } = getData();
 
   return servers?.map((server: ServerType) => (
     <li key={server.id}>
-      <Server
+      <NavigationServer
         href={`/channels/${server.id}`}
         image={{ alt: server.name, src: server.photoUrl }}
       />
@@ -21,4 +20,4 @@ const Servers = () => {
   ));
 };
 
-export default Servers;
+export default NavigationServerList;
