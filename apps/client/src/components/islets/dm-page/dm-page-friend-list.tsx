@@ -9,7 +9,9 @@ const DmPageFriendList = () => {
 
   return (
     <div className="mb-2 ml-[30px] mr-5 mt-4 h-full overflow-y-auto">
-      {data?.map((friend) => <div key={friend.id}>{friend.fullName}</div>)}
+      {data?.map((friend: UserType) => (
+        <div key={friend.id}>{friend.fullName}</div>
+      ))}
     </div>
   );
 };
