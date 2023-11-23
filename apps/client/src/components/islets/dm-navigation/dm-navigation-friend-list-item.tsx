@@ -4,7 +4,7 @@ import type { UserType } from '@/types/user';
 
 type DMFriendProps = { friendData: UserType };
 
-const DMFriend = ({ friendData }: DMFriendProps) => {
+const DMNavigationFriendListItem = ({ friendData }: DMFriendProps) => {
   const { avatar, fullName } = friendData;
 
   return (
@@ -23,4 +23,4 @@ const DMFriend = ({ friendData }: DMFriendProps) => {
   );
 };
 
-export default DMFriend;
+export default DMNavigationFriendListItem;

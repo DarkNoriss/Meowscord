@@ -1,5 +1,5 @@
-import DMFriendsList from '@/components/islets/dm-navigation/dm-friend-list';
-import DMMenu from '@/components/islets/dm-navigation/dm-menu';
+import DMNavigationFriendsList from '@/components/islets/dm-navigation/dm-navigation-friend-list';
+import DMNavigationMenu from '@/components/islets/dm-navigation/dm-navigation-menu';
 import UserStatusFooter from '@/components/islets/user-status-footer/user-status-footer';
 import NavigationBodyWrapper from '@/components/layout/secondary-navigation/NavigationBodyWrapper';
 import NavigationHeaderWrapper from '@/components/layout/secondary-navigation/NavigationHeaderWrapper';
@@ -13,8 +13,8 @@ const DMNavigation = () => {
         <SearchModal />
       </NavigationHeaderWrapper>
       <NavigationBodyWrapper>
-        <DMMenu />
-        <DMFriendsList />
+        <DMNavigationMenu />
+        <DMNavigationFriendsList />
       </NavigationBodyWrapper>
       <UserStatusFooter />
     </NavigationWrapper>

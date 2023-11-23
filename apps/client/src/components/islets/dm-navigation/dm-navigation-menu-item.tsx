@@ -32,7 +32,7 @@ type DMMenuItemProps = {
   label: string;
 };
 
-const DMMenuItem = ({ label }: DMMenuItemProps) => {
+const DMNavigationMenuItem = ({ label }: DMMenuItemProps) => {
   const pathname = usePathname();
   const Icon = iconComponents[label];
 
@@ -54,4 +54,4 @@ const DMMenuItem = ({ label }: DMMenuItemProps) => {
   );
 };
 
-export default DMMenuItem;
+export default DMNavigationMenuItem;

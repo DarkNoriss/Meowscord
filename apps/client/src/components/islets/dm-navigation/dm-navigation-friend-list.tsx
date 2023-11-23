@@ -1,6 +1,6 @@
 import { LuPlus } from 'react-icons/lu';
 
-import DMFriend from '@/components/islets/dm-navigation/dm-friend';
+import DMNavigationFriendListItem from '@/components/islets/dm-navigation/dm-navigation-friend-list-item';
 import { generateFakeFriends } from '@/lib/mock';
 import type { UserType } from '@/types/user';
 
@@ -9,7 +9,7 @@ const getData = () => {
   return { friends };
 };
 
-const DMFriendsList = () => {
+const DMNavigationFriendsList = () => {
   const { friends } = getData();
 
   return (
@@ -21,7 +21,7 @@ const DMFriendsList = () => {
       <ul>
         {friends.map((friend: UserType) => (
           <li key={friend.id}>
-            <DMFriend friendData={friend} />
+            <DMNavigationFriendListItem friendData={friend} />
           </li>
         ))}
       </ul>
@@ -29,4 +29,4 @@ const DMFriendsList = () => {
   );
 };
 
-export default DMFriendsList;
+export default DMNavigationFriendsList;
