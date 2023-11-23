@@ -1,3 +1,6 @@
+import { FaMessage } from 'react-icons/fa6';
+import { HiOutlineDotsVertical } from 'react-icons/hi';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
 import { Separator } from '@/components/ui/Separator';
 import { t } from '@/lib/i18n';
@@ -13,7 +16,7 @@ const DMPageFriendListItem = ({ friendData }: DMPageFriendListItemProps) => {
   return (
     <div className="ml-[30px] mr-5">
       <Separator className="w-full" />
-      <div className="flex h-[62px] flex-row items-center">
+      <div className="flex h-[62px] flex-row items-center justify-between">
         <div className="flex flex-row items-center">
           <div className="mr-3">
             <Avatar>
@@ -30,7 +33,14 @@ const DMPageFriendListItem = ({ friendData }: DMPageFriendListItemProps) => {
             </span>
           </div>
         </div>
-        <div />
+        <div className="flex flex-row text-muted">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-navigation-secondary">
+            <FaMessage size={16} />
+          </div>
+          <div className="ml-[10px] flex h-9 w-9 items-center justify-center rounded-full bg-navigation-secondary">
+            <HiOutlineDotsVertical size={16} />
+          </div>
+        </div>
       </div>
     </div>
   );
