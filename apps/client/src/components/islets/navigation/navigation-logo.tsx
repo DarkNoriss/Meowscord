@@ -1,11 +1,10 @@
+import NavigationServer from '@/components/islets/navigation/navigation-server';
 import { Separator } from '@/components/ui/Separator';
 
-import Server from './Server';
-
-const NavbarLogo = () => {
+const NavigationLogo = () => {
   return (
     <li>
-      <Server
+      <NavigationServer
         href="/channels/me"
         image={{ alt: 'Meowscord logo', src: '/logo.jpg', priority: true }}
       />
@@ -14,4 +13,4 @@ const NavbarLogo = () => {
   );
 };
 
-export default NavbarLogo;
+export default NavigationLogo;

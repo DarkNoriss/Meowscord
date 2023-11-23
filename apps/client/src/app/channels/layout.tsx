@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import Navigation from '@/components/layout/navigation/Navigation';
+import Navigation from '@/components/islets/navigation/navigation';
 
 type ChannelsLayoutProps = { children: ReactNode };
 

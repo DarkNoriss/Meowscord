@@ -1,7 +1,7 @@
 import { BsPersonFill } from 'react-icons/bs';
 
 import DMPageHeaderFilterButton from '@/components/islets/dm-page/dm-page-header-filter';
-import PageHeaderWrapper from '@/components/layout/page/page-header-wrapper';
+import PageHeaderWrapper from '@/components/layout/channels-page/page-header-wrapper';
 import { Separator } from '@/components/ui/Separator';
 import { type Filters } from '@/stores/filter-store';
 
