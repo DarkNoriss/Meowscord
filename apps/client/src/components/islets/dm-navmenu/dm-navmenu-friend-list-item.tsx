@@ -2,9 +2,11 @@
 
 import type { UserType } from '@/types/user';
 
-type DMFriendProps = { friendData: UserType };
+type DMNavmenuFriendListItemProps = { friendData: UserType };
 
-const DMNavigationFriendListItem = ({ friendData }: DMFriendProps) => {
+const DMNavmenuFriendListItem = ({
+  friendData,
+}: DMNavmenuFriendListItemProps) => {
   // eslint-disable-next-line unused-imports/no-unused-vars
   const { avatar, fullName } = friendData;
 
@@ -24,4 +26,4 @@ const DMNavigationFriendListItem = ({ friendData }: DMFriendProps) => {
   );
 };
 
-export default DMNavigationFriendListItem;
+export default DMNavmenuFriendListItem;

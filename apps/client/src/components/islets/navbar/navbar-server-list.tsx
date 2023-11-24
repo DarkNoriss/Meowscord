@@ -2,14 +2,14 @@
 
 import { useQuery } from '@tanstack/react-query';
 
-import NavigationServer from '@/components/islets/navigation/navigation-server';
+import NavbarServerItem from '@/components/islets/navbar/navbar-server-item';
 import type { ServerType } from '@/types/server';
 
-const NavigationServerList = () => {
+const NavbarServerList = () => {
   const { data } = useQuery<ServerType[]>({ queryKey: ['servers'] });
 
   return data?.map((server: ServerType) => (
-    <NavigationServer
+    <NavbarServerItem
       key={server.id}
       href={`/channels/${server.id}`}
       image={{ alt: server.name, src: server.photoUrl }}
@@ -18,4 +18,4 @@ const NavigationServerList = () => {
   ));
 };
 
-export default NavigationServerList;
+export default NavbarServerList;

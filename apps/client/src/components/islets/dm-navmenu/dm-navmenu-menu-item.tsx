@@ -28,11 +28,11 @@ const paths: Paths = {
   Store: '/store',
 };
 
-type DMMenuItemProps = {
+type DMNavmenuMenuItemProps = {
   label: string;
 };
 
-const DMNavigationMenuItem = ({ label }: DMMenuItemProps) => {
+const DMNavmenuMenuItem = ({ label }: DMNavmenuMenuItemProps) => {
   const pathname = usePathname();
   const Icon = iconComponents[label];
 
@@ -54,4 +54,4 @@ const DMNavigationMenuItem = ({ label }: DMMenuItemProps) => {
   );
 };
 
-export default DMNavigationMenuItem;
+export default DMNavmenuMenuItem;

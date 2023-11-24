@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import Navigation from '@/components/islets/navigation/navigation';
+import Navbar from '@/components/islets/navbar/navbar';
 import TanstackProvider from '@/components/providers/tanstack-provider';
 
 type ChannelsLayoutProps = { children: ReactNode };
@@ -8,7 +8,7 @@ type ChannelsLayoutProps = { children: ReactNode };
 const Layout = ({ children }: ChannelsLayoutProps) => {
   return (
     <TanstackProvider>
-      <Navigation />
+      <Navbar />
       {children}
     </TanstackProvider>
   );

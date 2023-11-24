@@ -7,7 +7,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/Tooltip';
 
-const NavigationCreateServer = () => {
+const NavbarServerAdd = () => {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -22,4 +22,4 @@ const NavigationCreateServer = () => {
   );
 };
 
-export default NavigationCreateServer;
+export default NavbarServerAdd;

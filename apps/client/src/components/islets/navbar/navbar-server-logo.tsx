@@ -1,8 +1,8 @@
-import NavigationServer from '@/components/islets/navigation/navigation-server';
+import NavbarServerItem from '@/components/islets/navbar/navbar-server-item';
 
-const NavigationLogo = () => {
+const NavbarServerLogo = () => {
   return (
-    <NavigationServer
+    <NavbarServerItem
       href="/channels/me"
       image={{ alt: 'Meowscord logo', src: '/logo.jpg', priority: true }}
       toltipcontent="Direct Messages"
@@ -10,4 +10,4 @@ const NavigationLogo = () => {
   );
 };
 
-export default NavigationLogo;
+export default NavbarServerLogo;
