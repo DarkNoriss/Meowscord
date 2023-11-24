@@ -48,7 +48,7 @@ const DMNavigationMenuItem = ({ label }: DMMenuItemProps) => {
       )}
       variant="ghost"
     >
-      {Icon && <Icon className="mr-3" size={24} />}
+      <div className="mr-3 h-6 w-6">{Icon && <Icon size={24} />}</div>
       <span className="text-base">{label}</span>
     </Button>
   );

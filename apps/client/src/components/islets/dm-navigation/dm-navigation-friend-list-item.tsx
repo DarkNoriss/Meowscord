@@ -10,9 +10,9 @@ const DMNavigationFriendListItem = ({ friendData }: DMFriendProps) => {
 
   return (
     <div className="flex h-[42px] items-center px-3 py-1">
-      <div className="shrink-0">
+      <div className="mr-3 h-8 w-8 shrink-0 rounded-full bg-navigation-button">
         {/* <Image
-          className="mr-3 h-8 w-8 rounded-full"
+          className="rounded-full"
           src={avatar}
           height={32}
           width={32}

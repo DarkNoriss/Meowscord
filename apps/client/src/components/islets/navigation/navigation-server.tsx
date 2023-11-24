@@ -24,7 +24,8 @@ const NavigationServer = ({ image, ...props }: NavigationServerProps) => {
 
   return (
     <Link className={cn('h-12 w-12 p-0', roundClasses)} {...props}>
-      {/* <Image
+      <div className={cn('mb-2 h-12 w-12 bg-navigation-button', roundClasses)}>
+        {/* <Image
         className={cn('mb-2', roundClasses)}
         height={48}
         width={48}
@@ -32,6 +33,7 @@ const NavigationServer = ({ image, ...props }: NavigationServerProps) => {
         alt={image.alt}
         priority={image.priority}
       /> */}
+      </div>
     </Link>
   );
 };

@@ -19,7 +19,7 @@ const DMPageFriendListItem = ({ friendData }: DMPageFriendListItemProps) => {
       <Separator className="w-full" />
       <div className="flex h-[62px] flex-row items-center justify-between">
         <div className="flex flex-row items-center">
-          <div className="mr-3">
+          <div className="mr-3 h-8 w-8 rounded-full bg-navigation-secondary">
             {/* <Avatar>
               <AvatarImage src={avatar} />
               <AvatarFallback>{fullName}</AvatarFallback>
