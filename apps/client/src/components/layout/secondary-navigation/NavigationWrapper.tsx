@@ -5,7 +5,7 @@ type NavigationWrapperProps = HTMLAttributes<HTMLDivElement>;
 const NavigationWrapper = ({ ...props }: NavigationWrapperProps) => {
   return (
     <div
-      className="fixed left-[72px] flex h-full w-60 flex-col bg-navigation-secondary"
+      className="fixed left-[70px] z-10 flex h-screen w-60 flex-col bg-navigation-secondary"
       {...props}
     />
   );

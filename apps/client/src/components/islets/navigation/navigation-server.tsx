@@ -1,7 +1,13 @@
+/* eslint-disable unused-imports/no-unused-vars */
 // import Image from 'next/image';
 import Link from 'next/link';
 import type { ComponentPropsWithoutRef } from 'react';
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/Tooltip';
 import { cn } from '@/lib/utils';
 
 type NavigationServerProps = {
@@ -10,10 +16,14 @@ type NavigationServerProps = {
     alt: string;
     priority?: boolean;
   };
+  toltipcontent: string;
 } & ComponentPropsWithoutRef<typeof Link>;
 
-// eslint-disable-next-line unused-imports/no-unused-vars
-const NavigationServer = ({ image, ...props }: NavigationServerProps) => {
+const NavigationServer = ({
+  image,
+  toltipcontent,
+  ...props
+}: NavigationServerProps) => {
   const isActive = () => {
     return false;
   };
@@ -23,9 +33,13 @@ const NavigationServer = ({ image, ...props }: NavigationServerProps) => {
     : 'rounded-full hover:rounded-2xl';
 
   return (
-    <Link className={cn('h-12 w-12 p-0', roundClasses)} {...props}>
-      <div className={cn('mb-2 h-12 w-12 bg-navigation-button', roundClasses)}>
-        {/* <Image
+    <Tooltip>
+      <TooltipTrigger>
+        <Link className={cn('h-12 w-12 p-0', roundClasses)} {...props}>
+          <div
+            className={cn('mb-2 h-12 w-12 bg-navigation-button', roundClasses)}
+          >
+            {/* <Image
         className={cn('mb-2', roundClasses)}
         height={48}
         width={48}
@@ -33,8 +47,13 @@ const NavigationServer = ({ image, ...props }: NavigationServerProps) => {
         alt={image.alt}
         priority={image.priority}
       /> */}
-      </div>
-    </Link>
+          </div>
+        </Link>
+      </TooltipTrigger>
+      <TooltipContent side="right" sideOffset={15}>
+        <span className="text-sm">{toltipcontent}</span>
+      </TooltipContent>
+    </Tooltip>
   );
 };
 
