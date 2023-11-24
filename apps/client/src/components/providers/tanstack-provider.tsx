@@ -30,6 +30,10 @@ const TanstackProvider = ({ children }: TanstackProviderProps) => {
         defaultOptions: {
           queries: {
             queryFn: defaultQueryFn,
+            refetchOnWindowFocus: false,
+            refetchOnMount: false,
+            refetchOnReconnect: false,
+            staleTime: Infinity,
           },
         },
       }),
