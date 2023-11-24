@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import DMPageFriendListItem from '@/components/islets/dm-page/dm-page-friend-list-item';
 import DMPageFriendListLabel from '@/components/islets/dm-page/dm-page-friend-list-label';
-import DmPageFriendSearch from '@/components/islets/dm-page/dm-page-friend-search';
+import DMPageFriendSearch from '@/components/islets/dm-page/dm-page-friend-search';
 import { useFriendFiltersStore } from '@/stores/filter-store';
 import { type UserType } from '@/types/user';
 
@@ -35,7 +35,7 @@ const DMPageFriendList = () => {
 
   return (
     <>
-      <DmPageFriendSearch />
+      <DMPageFriendSearch />
       <DMPageFriendListLabel count={filteredData.length} />
       <div className="mt-2 h-full overflow-y-auto pb-2">
         {filteredData.map((friend: UserType) => (
