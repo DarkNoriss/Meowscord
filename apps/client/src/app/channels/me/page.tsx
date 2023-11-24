@@ -1,7 +1,7 @@
 import DMNavigation from '@/components/islets/dm-navigation/dm-navigation';
 import DMPage from '@/components/islets/dm-page/dm-page';
 
-const MePage = () => {
+const Page = () => {
   return (
     <>
       <DMNavigation />
@@ -10,4 +10,4 @@ const MePage = () => {
   );
 };
 
-export default MePage;
+export default Page;

@@ -1,23 +1,23 @@
 import DMNavigationFriendsList from '@/components/islets/dm-navigation/dm-navigation-friend-list';
 import DMNavigationMenu from '@/components/islets/dm-navigation/dm-navigation-menu';
 import UserStatusFooter from '@/components/islets/user-status-footer/user-status-footer';
-import NavigationBodyWrapper from '@/components/layout/secondary-navigation/NavigationBodyWrapper';
-import NavigationHeaderWrapper from '@/components/layout/secondary-navigation/NavigationHeaderWrapper';
-import NavigationWrapper from '@/components/layout/secondary-navigation/NavigationWrapper';
+import NavmenuBodyWrapper from '@/components/layout/navmenu/navmenu-body-wrapper';
+import NavmenuHeaderWrapper from '@/components/layout/navmenu/navmenu-header-wrapper';
+import NavmenuWrapper from '@/components/layout/navmenu/navmenu-wrapper';
 import SearchModal from '@/components/SearchModal';
 
 const DMNavigation = () => {
   return (
-    <NavigationWrapper>
-      <NavigationHeaderWrapper>
+    <NavmenuWrapper>
+      <NavmenuHeaderWrapper>
         <SearchModal />
-      </NavigationHeaderWrapper>
-      <NavigationBodyWrapper>
+      </NavmenuHeaderWrapper>
+      <NavmenuBodyWrapper>
         <DMNavigationMenu />
         <DMNavigationFriendsList />
-      </NavigationBodyWrapper>
+      </NavmenuBodyWrapper>
       <UserStatusFooter />
-    </NavigationWrapper>
+    </NavmenuWrapper>
   );
 };
 

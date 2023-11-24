@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   description: 'Text with ur meow frens!',
 };
 
-type RootLayoutProps = { children: ReactNode };
+type LayoutProps = { children: ReactNode };
 
-const RootLayout = ({ children }: RootLayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <ClerkProvider
       appearance={{
@@ -42,4 +42,4 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   );
 };
 
-export default RootLayout;
+export default Layout;

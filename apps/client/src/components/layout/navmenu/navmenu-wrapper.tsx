@@ -1,8 +1,8 @@
 import type { HTMLAttributes } from 'react';
 
-type NavigationWrapperProps = HTMLAttributes<HTMLDivElement>;
+type NavmenuWrapperProps = HTMLAttributes<HTMLDivElement>;
 
-const NavigationWrapper = ({ ...props }: NavigationWrapperProps) => {
+const NavmenuWrapper = ({ ...props }: NavmenuWrapperProps) => {
   return (
     <div
       className="fixed left-[70px] z-10 flex h-screen w-60 flex-col bg-navigation-secondary"
@@ -11,4 +11,4 @@ const NavigationWrapper = ({ ...props }: NavigationWrapperProps) => {
   );
 };
 
-export default NavigationWrapper;
+export default NavmenuWrapper;

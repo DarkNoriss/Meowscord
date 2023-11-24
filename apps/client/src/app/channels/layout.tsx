@@ -5,7 +5,7 @@ import TanstackProvider from '@/components/providers/tanstack-provider';
 
 type ChannelsLayoutProps = { children: ReactNode };
 
-const ChannelsLayout = ({ children }: ChannelsLayoutProps) => {
+const Layout = ({ children }: ChannelsLayoutProps) => {
   return (
     <TanstackProvider>
       <Navigation />
@@ -14,4 +14,4 @@ const ChannelsLayout = ({ children }: ChannelsLayoutProps) => {
   );
 };
 
-export default ChannelsLayout;
+export default Layout;
