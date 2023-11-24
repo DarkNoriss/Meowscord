@@ -1,22 +1,20 @@
+'use client';
+
+import { useQuery } from '@tanstack/react-query';
+
 import NavigationServer from '@/components/islets/navigation/navigation-server';
-import { generateFakeServers } from '@/lib/mock';
 import type { ServerType } from '@/types/server';
 
-const getData = () => {
-  const servers = generateFakeServers(30);
-  return { servers };
-};
-
 const NavigationServerList = () => {
-  const { servers } = getData();
+  const { data } = useQuery<ServerType[]>({ queryKey: ['servers'] });
 
-  return servers?.map((server: ServerType) => (
-    <li key={server.id}>
-      <NavigationServer
-        href={`/channels/${server.id}`}
-        image={{ alt: server.name, src: server.photoUrl }}
-      />
-    </li>
+  return data?.map((server: ServerType) => (
+    <NavigationServer
+      key={server.id}
+      href={`/channels/${server.id}`}
+      image={{ alt: server.name, src: server.photoUrl }}
+      toltipcontent={server.name}
+    />
   ));
 };
 
