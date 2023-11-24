@@ -7,8 +7,7 @@ type DMNavmenuFriendListItemProps = { friendData: UserType };
 const DMNavmenuFriendListItem = ({
   friendData,
 }: DMNavmenuFriendListItemProps) => {
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  const { avatar, fullName } = friendData;
+  const { fullName } = friendData;
 
   return (
     <div className="flex h-[42px] items-center px-3 py-1">
