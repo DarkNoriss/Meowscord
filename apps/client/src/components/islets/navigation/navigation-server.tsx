@@ -1,4 +1,4 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 import type { ComponentPropsWithoutRef } from 'react';
 
@@ -12,6 +12,7 @@ type NavigationServerProps = {
   };
 } & ComponentPropsWithoutRef<typeof Link>;
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 const NavigationServer = ({ image, ...props }: NavigationServerProps) => {
   const isActive = () => {
     return false;
@@ -23,14 +24,14 @@ const NavigationServer = ({ image, ...props }: NavigationServerProps) => {
 
   return (
     <Link className={cn('h-12 w-12 p-0', roundClasses)} {...props}>
-      <Image
+      {/* <Image
         className={cn('mb-2', roundClasses)}
         height={48}
         width={48}
         src={image.src}
         alt={image.alt}
         priority={image.priority}
-      />
+      /> */}
     </Link>
   );
 };

@@ -1,7 +1,7 @@
 import { FaMessage } from 'react-icons/fa6';
 import { HiOutlineDotsVertical } from 'react-icons/hi';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
+// import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
 import { Separator } from '@/components/ui/Separator';
 import { t } from '@/lib/i18n';
 import type { UserType } from '@/types/user';
@@ -11,6 +11,7 @@ type DMPageFriendListItemProps = {
 };
 
 const DMPageFriendListItem = ({ friendData }: DMPageFriendListItemProps) => {
+  // eslint-disable-next-line unused-imports/no-unused-vars
   const { fullName, avatar, status } = friendData;
 
   return (
@@ -19,10 +20,10 @@ const DMPageFriendListItem = ({ friendData }: DMPageFriendListItemProps) => {
       <div className="flex h-[62px] flex-row items-center justify-between">
         <div className="flex flex-row items-center">
           <div className="mr-3">
-            <Avatar>
+            {/* <Avatar>
               <AvatarImage src={avatar} />
               <AvatarFallback>{fullName}</AvatarFallback>
-            </Avatar>
+            </Avatar> */}
           </div>
           <div className="flex flex-col">
             <span className="truncate text-base font-semibold text-primary">
