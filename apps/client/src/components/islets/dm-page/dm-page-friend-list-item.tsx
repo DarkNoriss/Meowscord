@@ -11,8 +11,7 @@ type DMPageFriendListItemProps = {
 };
 
 const DMPageFriendListItem = ({ friendData }: DMPageFriendListItemProps) => {
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  const { fullName, avatar, status } = friendData;
+  const { fullName, status } = friendData;
 
   return (
     <div className="ml-[30px] mr-5">
