@@ -1,7 +1,7 @@
 // import { auth } from '@clerk/nextjs';
 // import { nanoid } from 'nanoid';
 
-import { db } from '@/lib/db';
+// import { db } from '@/lib/db';
 // import { createFakeServer } from '@/lib/mock';
 // import { servers } from '@/models/schema';
 
@@ -14,6 +14,5 @@ export async function POST() {
   //   return new Response('', { status: 200 });
   // }
   // await db.insert(servers).values({ id, name, ownerId, usersId: ownerId });
-  await db;
   return new Response('', { status: 200 });
 }
