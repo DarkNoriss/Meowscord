@@ -19,7 +19,7 @@ type NavbarServerItemProps = {
   toltipcontent: string;
 } & ComponentPropsWithoutRef<typeof Link>;
 
-const NavbarServerItem = ({
+const NavbarServerListItem = ({
   image,
   toltipcontent,
   ...props
@@ -57,4 +57,4 @@ const NavbarServerItem = ({
   );
 };
 
-export default NavbarServerItem;
+export default NavbarServerListItem;
