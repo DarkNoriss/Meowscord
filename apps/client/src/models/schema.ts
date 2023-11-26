@@ -1,26 +1,27 @@
-// import { relations } from 'drizzle-orm';
-import { pgTable, varchar } from 'drizzle-orm/pg-core';
+import { relations } from 'drizzle-orm/relations';
+import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
-export const users = pgTable('users', {
-  id: varchar('id').primaryKey().notNull(),
-  username: varchar('name').notNull(),
+export const users = sqliteTable('users', {
+  id: text('id').primaryKey().notNull(),
+  username: text('username').notNull(),
 });
 
-export const servers = pgTable('servers', {
-  id: varchar('id').primaryKey().default('gen_random_uuid()'),
-  name: varchar('name').notNull(),
-  ownerId: varchar('owner').notNull(),
+export const servers = sqliteTable('servers', {
+  id: text('id').primaryKey().notNull(),
+  name: text('name').notNull(),
+  ownerId: text('ownerId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  usersId: text('usersId').notNull(),
 });
 
-// export const userRelations = relations(users, ({ many }) => ({
-//   servers: many(servers),
-// }));
+export const userRelations = relations(users, ({ many }) => ({
+  servers: many(servers),
+}));
 
-// export const serverRelations = relations(servers, ({ one }) => ({
-//   owner: one(users, {
-//     fields: [servers.ownerId],
-//     references: [users.id],
-//   }),
-// }));
-
-// trigger regeneration.
+export const serverRelations = relations(servers, ({ one }) => ({
+  owner: one(users, {
+    fields: [servers.ownerId],
+    references: [users.id],
+  }),
+}));
