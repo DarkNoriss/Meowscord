@@ -13,7 +13,6 @@ export async function POST() {
   if (!ownerId) {
     return new Response('', { status: 200 });
   }
-  await db;
   await db.insert(servers).values({ id, name, ownerId, usersId: ownerId });
 
   return new Response('', { status: 200 });
