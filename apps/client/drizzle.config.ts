@@ -4,7 +4,7 @@ import type { Config } from 'drizzle-kit';
 export default {
   out: './migrations',
   schema: './src/models/schema.ts',
-  driver: 'libsql',
+  driver: 'turso',
   dbCredentials: {
     url: process.env.DATABASE_URL ?? '',
   },
