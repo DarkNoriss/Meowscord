@@ -1,3 +1,6 @@
+'use client';
+
+import axios from 'axios';
 import { LuPlus } from 'react-icons/lu';
 
 import { Button } from '@/components/ui/Button';
@@ -8,10 +11,17 @@ import {
 } from '@/components/ui/Tooltip';
 
 const NavbarServerAdd = () => {
+  const createServer = async () => {
+    await axios.post('/api/add-server');
+  };
+
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button className="m-0 mb-2 h-12 w-12 rounded-full bg-navigation-button p-0 text-green-600 hover:rounded-2xl hover:bg-navigation-button-hover hover:text-primary">
+        <Button
+          className="m-0 mb-2 h-12 w-12 rounded-full bg-navigation-button p-0 text-green-600 hover:rounded-2xl hover:bg-navigation-button-hover hover:text-primary"
+          onClick={createServer}
+        >
           <LuPlus size={24} />
         </Button>
       </TooltipTrigger>
