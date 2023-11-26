@@ -25,3 +25,10 @@ export const generateFakeServers = (numberOfServers: number): ServerType[] => {
     messageCount: 0,
   }));
 };
+
+export const createFakeServer = () => {
+  return {
+    id: generateFakeId(),
+    name: faker.animal.cat(),
+  };
+};
