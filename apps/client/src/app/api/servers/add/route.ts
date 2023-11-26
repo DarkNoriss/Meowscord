@@ -1,14 +1,14 @@
-import { auth } from '@clerk/nextjs';
-import { nanoid } from 'nanoid';
+// import { auth } from '@clerk/nextjs';
+// import { nanoid } from 'nanoid';
 
 import { db } from '@/lib/db';
-import { createFakeServer } from '@/lib/mock';
+// import { createFakeServer } from '@/lib/mock';
 // import { servers } from '@/models/schema';
 
 export async function POST() {
-  const id = nanoid();
-  const { name } = createFakeServer();
-  const { userId: ownerId } = auth();
+  // const id = nanoid();
+  // const { name } = createFakeServer();
+  // const { userId: ownerId } = auth();
 
   // if (!ownerId) {
   //   return new Response('', { status: 200 });
