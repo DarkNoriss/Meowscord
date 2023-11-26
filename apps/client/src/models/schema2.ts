@@ -1,4 +1,4 @@
-import { relations } from 'drizzle-orm';
+// import { relations } from 'drizzle-orm';
 import { pgTable, varchar } from 'drizzle-orm/pg-core';
 
 export const users = pgTable('users', {
@@ -12,13 +12,15 @@ export const servers = pgTable('servers', {
   ownerId: varchar('owner').notNull(),
 });
 
-export const userRelations = relations(users, ({ many }) => ({
-  servers: many(servers),
-}));
+// export const userRelations = relations(users, ({ many }) => ({
+//   servers: many(servers),
+// }));
 
-export const serverRelations = relations(servers, ({ one }) => ({
-  owner: one(users, {
-    fields: [servers.ownerId],
-    references: [users.id],
-  }),
-}));
+// export const serverRelations = relations(servers, ({ one }) => ({
+//   owner: one(users, {
+//     fields: [servers.ownerId],
+//     references: [users.id],
+//   }),
+// }));
+
+// trigger regeneration.
