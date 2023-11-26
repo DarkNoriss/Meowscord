@@ -9,7 +9,7 @@
     "lint": "next lint",
     "shadcn:add": "pnpm dlx shadcn-ui@latest add",
     "driz:gen": "npx drizzle-kit generate:sqlite"
-  },
+   },
   "dependencies": {
     "@clerk/nextjs": "^4.27.2",
     "@clerk/themes": "^1.7.9",
@@ -33,6 +33,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "drizzle-orm": "^0.29.0",
+    "nanoid": "^5.0.3",
     "next": "^14.0.3",
     "next-seo": "^6.4.0",
     "next-sitemap": "^4.2.3",
