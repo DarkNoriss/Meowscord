@@ -1,6 +1,5 @@
-import { bigint, pgTable, varchar } from 'drizzle-orm/pg-core';
+import { bigint, pgTable, primaryKey, varchar } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm/relations';
-import { nanoid } from 'nanoid';
 
 //
 // SCHEMAS
@@ -17,23 +16,31 @@ export const users = pgTable('users', {
 });
 
 export const servers = pgTable('servers', {
-  id: varchar('id').primaryKey().notNull().default(nanoid()),
+  id: varchar('id').primaryKey().notNull(),
   ownerId: varchar('owner_id')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
   name: varchar('name').notNull(),
 });
 
-export const userServers = pgTable('user_servers', {
-  userId: varchar('user_id')
-    .primaryKey()
-    .notNull()
-    .references(() => users.id),
-  serverId: varchar('server_id')
-    .primaryKey()
-    .notNull()
-    .references(() => servers.id),
-});
+export const userServers = pgTable(
+  'user_servers',
+  {
+    userId: varchar('user_id')
+      .notNull()
+      .references(() => users.id),
+    serverId: varchar('server_id')
+      .notNull()
+      .references(() => servers.id),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({
+        columns: [table.userId, table.serverId],
+      }),
+    };
+  },
+);
 
 //
 // RELATIONS
