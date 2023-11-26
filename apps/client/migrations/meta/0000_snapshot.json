@@ -1,49 +1,46 @@
 {
-  "version": "5",
-  "dialect": "sqlite",
-  "id": "bbb6b17f-7bc5-41b0-9ca2-a8a56ff4f0af",
+  "id": "1886b212-f54e-4019-9301-41a6a3e0b488",
   "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "5",
+  "dialect": "pg",
   "tables": {
     "servers": {
       "name": "servers",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
-          "type": "text",
+          "type": "varchar",
           "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
         "name": {
           "name": "name",
-          "type": "text",
+          "type": "varchar",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
-        "owner": {
-          "name": "owner",
-          "type": "text",
+        "ownerId": {
+          "name": "ownerId",
+          "type": "varchar",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
-        "users": {
-          "name": "users",
-          "type": "text",
+        "usersId": {
+          "name": "usersId",
+          "type": "varchar",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         }
       },
       "indexes": {},
       "foreignKeys": {
-        "servers_owner_users_id_fk": {
-          "name": "servers_owner_users_id_fk",
+        "servers_ownerId_users_id_fk": {
+          "name": "servers_ownerId_users_id_fk",
           "tableFrom": "servers",
           "tableTo": "users",
           "columnsFrom": [
-            "owner"
+            "ownerId"
           ],
           "columnsTo": [
             "id"
@@ -57,20 +54,19 @@
     },
     "users": {
       "name": "users",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
-          "type": "text",
+          "type": "varchar",
           "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
-        "name": {
-          "name": "name",
-          "type": "text",
+        "username": {
+          "name": "username",
+          "type": "varchar",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         }
       },
       "indexes": {},
@@ -80,6 +76,7 @@
     }
   },
   "enums": {},
+  "schemas": {},
   "_meta": {
     "schemas": {},
     "tables": {},

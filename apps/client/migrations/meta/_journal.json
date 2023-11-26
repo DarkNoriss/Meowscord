@@ -1,19 +1,12 @@
 {
   "version": "5",
-  "dialect": "sqlite",
+  "dialect": "pg",
   "entries": [
     {
       "idx": 0,
       "version": "5",
-      "when": 1700973992777,
-      "tag": "0000_cool_nocturne",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1700974584931,
-      "tag": "0001_closed_swordsman",
+      "when": 1701024330443,
+      "tag": "0000_tranquil_riptide",
       "breakpoints": true
     }
   ]
