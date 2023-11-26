@@ -1,18 +1,18 @@
+import { pgTable, varchar } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm/relations';
-import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
-export const users = sqliteTable('users', {
-  id: text('id').primaryKey().notNull(),
-  username: text('username').notNull(),
+export const users = pgTable('users', {
+  id: varchar('id').primaryKey().notNull(),
+  username: varchar('username').notNull(),
 });
 
-export const servers = sqliteTable('servers', {
-  id: text('id').primaryKey().notNull(),
-  name: text('name').notNull(),
-  ownerId: text('ownerId')
+export const servers = pgTable('servers', {
+  id: varchar('id').primaryKey().notNull(),
+  name: varchar('name').notNull(),
+  ownerId: varchar('ownerId')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
-  usersId: text('usersId').notNull(),
+  usersId: varchar('usersId').notNull(),
 });
 
 export const userRelations = relations(users, ({ many }) => ({
