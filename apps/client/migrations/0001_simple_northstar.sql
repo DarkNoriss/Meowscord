@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS "user_servers" (
-	"user_id" varchar PRIMARY KEY NOT NULL,
-	"server_id" varchar PRIMARY KEY NOT NULL
+	"user_id" varchar NOT NULL,
+	"server_id" varchar NOT NULL,
+	CONSTRAINT user_servers_user_id_server_id_pk PRIMARY KEY("user_id","server_id")
 );
 --> statement-breakpoint
 ALTER TABLE "servers" RENAME COLUMN "ownerId" TO "owner_id";--> statement-breakpoint
 ALTER TABLE "servers" DROP CONSTRAINT "servers_ownerId_users_id_fk";
 --> statement-breakpoint
-ALTER TABLE "servers" ALTER COLUMN "id" SET DEFAULT '8dErMitqPoyxmSP6aEkJs';--> statement-breakpoint
 ALTER TABLE "users" ADD COLUMN "first_name" varchar NOT NULL;--> statement-breakpoint
 ALTER TABLE "users" ADD COLUMN "last_name" varchar NOT NULL;--> statement-breakpoint
 ALTER TABLE "users" ADD COLUMN "image_url" varchar NOT NULL;--> statement-breakpoint

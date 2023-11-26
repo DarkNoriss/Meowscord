@@ -1,5 +1,5 @@
 {
-  "id": "b8779307-ca7c-413a-87dc-48960e26f445",
+  "id": "29e6ec0a-93e0-416e-9de4-e3b8b9539690",
   "prevId": "1886b212-f54e-4019-9301-41a6a3e0b488",
   "version": "5",
   "dialect": "pg",
@@ -12,8 +12,7 @@
           "name": "id",
           "type": "varchar",
           "primaryKey": true,
-          "notNull": true,
-          "default": "'8dErMitqPoyxmSP6aEkJs'"
+          "notNull": true
         },
         "owner_id": {
           "name": "owner_id",
@@ -54,13 +53,13 @@
         "user_id": {
           "name": "user_id",
           "type": "varchar",
-          "primaryKey": true,
+          "primaryKey": false,
           "notNull": true
         },
         "server_id": {
           "name": "server_id",
           "type": "varchar",
-          "primaryKey": true,
+          "primaryKey": false,
           "notNull": true
         }
       },
@@ -93,7 +92,15 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {},
+      "compositePrimaryKeys": {
+        "user_servers_user_id_server_id_pk": {
+          "name": "user_servers_user_id_server_id_pk",
+          "columns": [
+            "user_id",
+            "server_id"
+          ]
+        }
+      },
       "uniqueConstraints": {}
     },
     "users": {
