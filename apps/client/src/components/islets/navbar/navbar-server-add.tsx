@@ -12,7 +12,7 @@ import {
 
 const NavbarServerAdd = () => {
   const createServer = async () => {
-    await axios.post('/api/add-server');
+    await axios.post('/api/servers/add');
   };
 
   return (
