@@ -1,17 +1,9 @@
 /* eslint-disable no-console */
-import { createClient } from '@libsql/client';
-import { drizzle } from 'drizzle-orm/libsql';
-import { migrate } from 'drizzle-orm/libsql/migrator';
+import { sql } from '@vercel/postgres';
+import { migrate } from 'drizzle-orm/postgres-js/migrator';
+import { drizzle } from 'drizzle-orm/vercel-postgres';
 
-import * as schema from '../models/schema';
-import { Env } from './Env.mjs';
-
-const client = createClient({
-  url: Env.DATABASE_URL,
-  authToken: Env.DATABASE_AUTH_TOKEN,
-});
-
-export const db = drizzle(client, { schema });
+export const db = drizzle(sql);
 
 // Disable migrate function if using Edge runtime for local environment and use `drizzle-kit push` instead
 if (process.env.NODE_ENV !== 'production') {
