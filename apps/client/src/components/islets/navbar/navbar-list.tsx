@@ -9,7 +9,7 @@
 //   return { data };
 // };
 
-const NavbarServerList = async () => {
+const NavbarList = async () => {
   // const { data } = await getData();
   // console.log(data);
   // const { data } = useQuery<ServerType[]>({ queryKey: ['servers'] });
@@ -24,4 +24,4 @@ const NavbarServerList = async () => {
   // ));
 };
 
-export default NavbarServerList;
+export default NavbarList;

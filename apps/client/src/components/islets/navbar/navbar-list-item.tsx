@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/Tooltip';
 import { cn } from '@/lib/utils';
 
-type NavbarServerItemProps = {
+type NavbarItemProps = {
   image: {
     src: string;
     alt: string;
@@ -19,11 +19,11 @@ type NavbarServerItemProps = {
   toltipcontent: string;
 } & ComponentPropsWithoutRef<typeof Link>;
 
-const NavbarServerListItem = ({
+const NavbarListItem = ({
   image,
   toltipcontent,
   ...props
-}: NavbarServerItemProps) => {
+}: NavbarItemProps) => {
   const isActive = () => {
     return false;
   };
@@ -57,4 +57,4 @@ const NavbarServerListItem = ({
   );
 };
 
-export default NavbarServerListItem;
+export default NavbarListItem;

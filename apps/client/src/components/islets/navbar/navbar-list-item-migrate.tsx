@@ -10,9 +10,9 @@ import {
   TooltipTrigger,
 } from '@/components/ui/Tooltip';
 
-const NavbarServerAdd = () => {
-  const createServer = async () => {
-    await axios.post('/api/servers/add');
+const NavbarServerItemMigrate = () => {
+  const migrate = async () => {
+    await axios.post('/api/migrate');
   };
 
   return (
@@ -20,16 +20,16 @@ const NavbarServerAdd = () => {
       <TooltipTrigger asChild>
         <Button
           className="m-0 mb-2 h-12 w-12 shrink-0 rounded-full bg-navigation-button p-0 text-green-600 hover:rounded-2xl hover:bg-navigation-button-hover hover:text-primary"
-          onClick={createServer}
+          onClick={migrate}
         >
           <LuPlus size={24} />
         </Button>
       </TooltipTrigger>
       <TooltipContent side="right" sideOffset={15}>
-        Add a server
+        Migrate
       </TooltipContent>
     </Tooltip>
   );
 };
 
-export default NavbarServerAdd;
+export default NavbarServerItemMigrate;
