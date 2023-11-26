@@ -5,7 +5,8 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "shadcn:add": "pnpm --filter client shadcn:add",
-    "update-deps": "pnpm update --filter *"
+    "update-deps": "pnpm update --filter *",
+    "driz:gen": "npx --filter client driz:gen"
   },
   "devDependencies": {
     "eslint": "^8.54.0",
