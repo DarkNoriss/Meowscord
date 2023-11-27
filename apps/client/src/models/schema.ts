@@ -11,7 +11,6 @@ export const users = pgTable('users', {
   lastName: varchar('last_name').notNull(),
   username: varchar('username').notNull(),
   imageUrl: varchar('image_url').notNull(),
-  profileImageUrl: varchar('profile_image_url'),
   createdAt: bigint('created_at', { mode: 'number' }).notNull(),
 });
 

@@ -15,6 +15,13 @@
       "when": 1701034573158,
       "tag": "0001_simple_northstar",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1701118006700,
+      "tag": "0002_careless_sleepwalker",
+      "breakpoints": true
     }
   ]
 }
