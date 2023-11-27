@@ -59,6 +59,8 @@ export async function POST(req: Request) {
 
   switch (evt.type) {
     case 'user.created': {
+      console.log('Weebhook to create user');
+
       const {
         id,
         first_name: firstName,
@@ -83,6 +85,8 @@ export async function POST(req: Request) {
     default:
       break;
   }
+
+  console.log('Weebhook done!');
 
   return new Response('Webhook done!', { status: 200 });
 }
