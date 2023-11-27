@@ -1,8 +1,10 @@
 /* eslint-disable no-console */
 import type { WebhookEvent } from '@clerk/nextjs/server';
-import axios from 'axios';
 import { headers } from 'next/headers';
 import { Webhook } from 'svix';
+
+import { db } from '@/lib/db';
+import { users } from '@/models/schema';
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -59,8 +61,6 @@ export async function POST(req: Request) {
 
   switch (evt.type) {
     case 'user.created': {
-      console.log('Weebhook to create user');
-
       const {
         id,
         first_name: firstName,
@@ -70,14 +70,23 @@ export async function POST(req: Request) {
         created_at: createdAt,
       } = evt.data;
 
-      axios.post('../user/create', {
-        id,
-        firstName,
-        lastName,
-        username,
-        imageUrl,
-        createdAt,
-      });
+      try {
+        console.log('Trying to create user');
+        const user = {
+          id,
+          firstName,
+          lastName,
+          username: username || '',
+          imageUrl,
+          createdAt,
+        };
+
+        await db.insert(users).values(user);
+        console.log('User created!');
+      } catch (error) {
+        console.error(error);
+        return new Response('Error creating user', { status: 500 });
+      }
       break;
     }
     case 'user.updated':
