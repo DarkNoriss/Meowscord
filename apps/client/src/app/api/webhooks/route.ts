@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import type { WebhookEvent } from '@clerk/nextjs/server';
+import axios from 'axios';
 import { headers } from 'next/headers';
 import { Webhook } from 'svix';
 
@@ -49,12 +50,39 @@ export async function POST(req: Request) {
     });
   }
 
-  // Get the ID and type
-  const { id } = evt.data;
-  const eventType = evt.type;
+  // // Get the ID and type
+  // const { id } = evt.data;
+  // const eventType = evt.type;
 
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
-  console.log('Webhook body:', body);
+  // console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
+  // console.log('Webhook body:', body);
 
-  return new Response('Worked!', { status: 200 });
+  switch (evt.type) {
+    case 'user.created': {
+      const {
+        id,
+        first_name: firstName,
+        last_name: lastName,
+        username,
+        image_url: imageUrl,
+        created_at: createdAt,
+      } = evt.data;
+
+      axios.post('/api/user/create', {
+        id,
+        firstName,
+        lastName,
+        username,
+        imageUrl,
+        createdAt,
+      });
+      break;
+    }
+    case 'user.updated':
+    case 'user.deleted':
+    default:
+      break;
+  }
+
+  return new Response('Webhook done!', { status: 200 });
 }

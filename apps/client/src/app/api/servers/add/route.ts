@@ -1,18 +1,32 @@
-// import { auth } from '@clerk/nextjs';
-// import { nanoid } from 'nanoid';
-
+// /* eslint-disable no-console */
 // import { db } from '@/lib/db';
-// import { createFakeServer } from '@/lib/mock';
-// import { servers } from '@/models/schema';
+// import { users } from '@/models/schema';
 
-export async function POST() {
-  // const id = nanoid();
-  // const { name } = createFakeServer();
-  // const { userId: ownerId } = auth();
+// export async function POST(req: Request) {
+//   try {
+//     const {
+//       id,
+//       firstName,
+//       lastName,
+//       username,
+//       imageUrl,
+//       profileImageUrl,
+//       createdAt,
+//     } = await req.json();
 
-  // if (!ownerId) {
-  //   return new Response('', { status: 200 });
-  // }
-  // await db.insert(servers).values({ id, name, ownerId, usersId: ownerId });
-  return new Response('', { status: 200 });
-}
+//     await db.insert(users).values({
+//       id,
+//       firstName,
+//       lastName,
+//       username,
+//       imageUrl,
+//       profileImageUrl,
+//       createdAt,
+//     });
+
+//     return new Response('User added!', { status: 200 });
+//   } catch (error) {
+//     console.error(error);
+//     return new Response('Error adding user', { status: 500 });
+//   }
+// }
