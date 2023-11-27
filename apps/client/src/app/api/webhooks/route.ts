@@ -70,7 +70,7 @@ export async function POST(req: Request) {
         created_at: createdAt,
       } = evt.data;
 
-      axios.post('/api/user/create', {
+      axios.post('../user/create', {
         id,
         firstName,
         lastName,
