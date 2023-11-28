@@ -1,27 +1,24 @@
-// import { useQuery } from '@tanstack/react-query';
+'use client';
 
-// import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
-// import NavbarServerItem from '@/components/islets/navbar/navbar-server-item';
-// import type { ServerType } from '@/types/server';
-// const getData = async () => {
-//   const data = await axios.get('/api/servers/get');
-//   return { data };
-// };
+import NavbarListItem from '@/components/islets/navbar/navbar-list-item';
+import { type Server } from '@/models/schema';
 
-const NavbarList = async () => {
-  // const { data } = await getData();
-  // console.log(data);
-  // const { data } = useQuery<ServerType[]>({ queryKey: ['servers'] });
-  return null;
-  // return data?.map((server: ServerType) => (
-  //   <NavbarServerItem
-  //     key={server.id}
-  //     href={`/channels/${server.id}`}
-  //     image={{ alt: server.name, src: server.photoUrl }}
-  //     toltipcontent={server.name}
-  //   />
-  // ));
+type ServerWithoutOwner = Omit<Server, 'ownerId'>;
+
+const NavbarList = () => {
+  const { data } = useQuery<ServerWithoutOwner[]>({ queryKey: ['servers'] });
+
+  if (!data) return null;
+
+  return data.map((server: ServerWithoutOwner) => (
+    <NavbarListItem
+      key={server.id}
+      href={`/channels/${server.id}`}
+      toltipcontent={server.name}
+    />
+  ));
 };
 
 export default NavbarList;
