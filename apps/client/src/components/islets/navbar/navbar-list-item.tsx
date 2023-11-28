@@ -11,7 +11,7 @@ import {
 import { cn } from '@/lib/utils';
 
 type NavbarItemProps = {
-  image: {
+  image?: {
     src: string;
     alt: string;
     priority?: boolean;
