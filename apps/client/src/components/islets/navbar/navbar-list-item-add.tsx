@@ -23,16 +23,12 @@ const NavbarListItemAdd = () => {
     },
   });
 
-  const createServer = async () => {
-    mutation.mutate();
-  };
-
   return (
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
           className="m-0 mb-2 h-12 w-12 shrink-0 rounded-full bg-navigation-button p-0 text-green-600 hover:rounded-2xl hover:bg-navigation-button-hover hover:text-primary"
-          onClick={createServer}
+          onClick={() => mutation.mutate()}
         >
           <LuPlus size={24} />
         </Button>
