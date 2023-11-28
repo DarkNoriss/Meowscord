@@ -3,9 +3,10 @@
 import type { QueryKey } from '@tanstack/react-query';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import axios from 'axios';
 import { useState } from 'react';
 
-import { generateFakeFriends, generateFakeServers } from '@/lib/mock';
+import { generateFakeFriends } from '@/lib/mock';
 
 const defaultQueryFn = async ({ queryKey }: { queryKey: QueryKey }) => {
   if (queryKey[0] === 'friends') {
@@ -13,8 +14,8 @@ const defaultQueryFn = async ({ queryKey }: { queryKey: QueryKey }) => {
     return response;
   }
   if (queryKey[0] === 'servers') {
-    const response = await generateFakeServers(30);
-    return response;
+    const response = await axios.get('/api/servers/get');
+    return response.data;
   }
   return null;
 };
