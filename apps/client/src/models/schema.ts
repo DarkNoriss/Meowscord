@@ -27,10 +27,10 @@ export const userServers = pgTable(
   {
     userId: varchar('user_id')
       .notNull()
-      .references(() => users.id),
+      .references(() => users.id, { onDelete: 'cascade' }),
     serverId: varchar('server_id')
       .notNull()
-      .references(() => servers.id),
+      .references(() => servers.id, { onDelete: 'cascade' }),
   },
   (table) => {
     return {
@@ -71,3 +71,6 @@ export const userServerRelations = relations(userServers, ({ one }) => ({
 //
 // TYPES
 //
+
+export type User = typeof users.$inferSelect;
+export type Server = typeof servers.$inferInsert;
