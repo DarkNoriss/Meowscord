@@ -41,12 +41,32 @@ export const userServers = pgTable(
   },
 );
 
+export const userFriends = pgTable(
+  'user_friends',
+  {
+    userId: varchar('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    friendId: varchar('friend_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({
+        columns: [table.userId, table.friendId],
+      }),
+    };
+  },
+);
+
 //
 // RELATIONS
 //
 
 export const userRelations = relations(users, ({ many }) => ({
   servers: many(servers),
+  friends: many(users),
 }));
 
 export const serverRelations = relations(servers, ({ one, many }) => ({
@@ -65,6 +85,17 @@ export const userServerRelations = relations(userServers, ({ one }) => ({
   server: one(servers, {
     fields: [userServers.serverId],
     references: [servers.id],
+  }),
+}));
+
+export const userFriendRelations = relations(userFriends, ({ one }) => ({
+  user: one(users, {
+    fields: [userFriends.userId],
+    references: [users.id],
+  }),
+  friend: one(users, {
+    fields: [userFriends.friendId],
+    references: [users.id],
   }),
 }));
 
