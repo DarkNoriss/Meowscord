@@ -1,21 +1,22 @@
-// import { auth } from '@clerk/nextjs';
-// import { sql } from 'drizzle-orm/sql';
+import { auth } from '@clerk/nextjs';
+import { eq } from 'drizzle-orm/sql';
 
-// import { db } from '@/lib/db';
-// import type { Server } from '@/models/schema';
-// import { servers, users } from '@/models/schema';
+import { db } from '@/lib/db';
+import { servers, userServers } from '@/models/schema';
 
 export async function GET() {
-  // const { userId } = auth();
+  const { userId } = auth();
 
-  // if (!userId) {
-  //   return [] as Server[];
-  // }
-  // const result = await db
-  //   .select()
-  //   .from(servers)
-  //   .where(sql`${users.id} = ${userId}`);
+  if (!userId) {
+    return new Response('User not authenticated', { status: 401 });
+  }
 
-  // return new Response(JSON.stringify({ result }), { status: 200 });
-  return new Response('', { status: 200 });
+  const serversData = await db
+    .select({ id: servers.id, name: servers.name })
+    .from(userServers)
+    .leftJoin(servers, eq(servers.id, userServers.serverId))
+    .where(eq(userServers.userId, userId))
+    .then((data) => (Array.isArray(data) ? data : [data]));
+
+  return new Response(JSON.stringify(serversData), { status: 200 });
 }
