@@ -1,5 +1,6 @@
 'use client';
 
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { LuPlus } from 'react-icons/lu';
 
@@ -11,8 +12,19 @@ import {
 } from '@/components/ui/Tooltip';
 
 const NavbarListItemAdd = () => {
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: () => {
+      return axios.post('/api/servers/create');
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['servers'] });
+    },
+  });
+
   const createServer = async () => {
-    await axios.post('/api/servers/add');
+    mutation.mutate();
   };
 
   return (
