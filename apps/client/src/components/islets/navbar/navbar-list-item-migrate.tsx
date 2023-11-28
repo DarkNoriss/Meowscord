@@ -1,7 +1,6 @@
 'use client';
 
 import axios from 'axios';
-import { LuPlus } from 'react-icons/lu';
 
 import { Button } from '@/components/ui/Button';
 import {
@@ -22,7 +21,7 @@ const NavbarServerItemMigrate = () => {
           className="m-0 mb-2 h-12 w-12 shrink-0 rounded-full bg-navigation-button p-0 text-green-600 hover:rounded-2xl hover:bg-navigation-button-hover hover:text-primary"
           onClick={migrate}
         >
-          <LuPlus size={24} />
+          <span className="text-2xl">M</span>
         </Button>
       </TooltipTrigger>
       <TooltipContent side="right" sideOffset={15}>
