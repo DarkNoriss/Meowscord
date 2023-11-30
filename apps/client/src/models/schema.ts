@@ -66,7 +66,7 @@ export const userFriends = pgTable(
 
 export const userRelations = relations(users, ({ many }) => ({
   servers: many(servers),
-  friends: many(users),
+  // friends: many(users),
 }));
 
 export const serverRelations = relations(servers, ({ one, many }) => ({
@@ -85,17 +85,6 @@ export const userServerRelations = relations(userServers, ({ one }) => ({
   server: one(servers, {
     fields: [userServers.serverId],
     references: [servers.id],
-  }),
-}));
-
-export const userFriendRelations = relations(userFriends, ({ one }) => ({
-  user: one(users, {
-    fields: [userFriends.userId],
-    references: [users.id],
-  }),
-  friend: one(users, {
-    fields: [userFriends.friendId],
-    references: [users.id],
   }),
 }));
 
