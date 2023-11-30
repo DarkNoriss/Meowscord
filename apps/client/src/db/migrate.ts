@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { migrate } from 'drizzle-orm/postgres-js/migrator';
 
-import { db } from './db';
+import { db } from '@/db';
 
 // Disable migrate function if using Edge runtime for local environment and use `drizzle-kit push` instead
 export const migrateDb = async () => {
