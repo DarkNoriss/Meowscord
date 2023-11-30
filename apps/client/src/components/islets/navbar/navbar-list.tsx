@@ -3,7 +3,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import NavbarListItem from '@/components/islets/navbar/navbar-list-item';
-import { type Server } from '@/models/schema';
+import type { Server } from '@/db/schema';
 
 type ServerWithoutOwner = Omit<Server, 'ownerId'>;
 
