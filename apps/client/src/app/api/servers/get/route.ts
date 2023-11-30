@@ -1,8 +1,8 @@
 import { auth } from '@clerk/nextjs';
 import { eq } from 'drizzle-orm/sql';
 
-import { db } from '@/lib/db';
-import { servers, userServers } from '@/models/schema';
+import { db } from '@/db';
+import { servers, userServers } from '@/db/schema';
 
 export async function GET() {
   const { userId } = auth();
