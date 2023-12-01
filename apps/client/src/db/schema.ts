@@ -87,10 +87,3 @@ export const userServerRelations = relations(userServers, ({ one }) => ({
     references: [servers.id],
   }),
 }));
-
-//
-// TYPES
-//
-
-export type User = typeof users.$inferSelect;
-export type Server = typeof servers.$inferInsert;
