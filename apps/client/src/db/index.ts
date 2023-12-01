@@ -2,7 +2,7 @@ import { sql } from '@vercel/postgres';
 import type { VercelPgDatabase } from 'drizzle-orm/vercel-postgres';
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 
-import * as schema from '../models/schema';
+import * as schema from './schema';
 
 declare global {
   // eslint-disable-next-line no-var, vars-on-top -- only var works here
