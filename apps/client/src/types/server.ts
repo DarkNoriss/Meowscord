@@ -1,6 +1,5 @@
-export type ServerType = {
-  id: string;
-  name: string;
-  photoUrl: string;
-  messageCount: number;
-};
+import type { servers } from '@/db/schema';
+
+export type Server = typeof servers.$inferInsert;
+
+export type ServerWithoutOwner = Omit<Server, 'ownerId'>;
