@@ -1,7 +1,4 @@
-'use client';
-
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+import { auth } from '@clerk/nextjs';
 import { LuPlus } from 'react-icons/lu';
 
 import { Button } from '@/components/ui/Button';
@@ -10,28 +7,30 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/Tooltip';
+import { createServer } from '@/data-access/server';
 
 const NavbarListItemAdd = () => {
-  const queryClient = useQueryClient();
+  const { userId } = auth();
 
-  const mutation = useMutation({
-    mutationFn: () => {
-      return axios.post('/api/servers/create');
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['servers'] });
-    },
-  });
+  if (!userId) return null;
+
+  const handleClick = async () => {
+    'use server';
+
+    createServer(userId);
+  };
 
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button
-          className="m-0 mb-2 h-12 w-12 shrink-0 rounded-full bg-navigation-button p-0 text-green-600 hover:rounded-2xl hover:bg-navigation-button-hover hover:text-primary"
-          onClick={() => mutation.mutate()}
-        >
-          <LuPlus size={24} />
-        </Button>
+        <form action={handleClick}>
+          <Button
+            className="m-0 mb-2 h-12 w-12 shrink-0 rounded-full bg-navigation-button p-0 text-green-600 hover:rounded-2xl hover:bg-navigation-button-hover hover:text-primary"
+            type="submit" // onClick={() => mutation.mutate()}
+          >
+            <LuPlus size={24} />
+          </Button>
+        </form>
       </TooltipTrigger>
       <TooltipContent side="right" sideOffset={15}>
         Add a server

@@ -1,18 +1,19 @@
-'use client';
-
-import { useQuery } from '@tanstack/react-query';
+import { auth } from '@clerk/nextjs';
 
 import NavbarListItem from '@/components/islets/navbar/navbar-list-item';
-import type { Server } from '@/db/schema';
+import { getServers } from '@/data-access/server';
+import type { ServerWithoutOwner } from '@/types/server';
 
-type ServerWithoutOwner = Omit<Server, 'ownerId'>;
+export const revalidate = 60;
 
-const NavbarList = () => {
-  const { data } = useQuery<ServerWithoutOwner[]>({ queryKey: ['servers'] });
+const NavbarList = async () => {
+  const { userId } = auth();
 
-  if (!data) return null;
+  if (!userId) return null;
 
-  return data.map((server: ServerWithoutOwner) => (
+  const servers = await getServers(userId);
+
+  return servers.map((server: ServerWithoutOwner) => (
     <NavbarListItem
       key={server.id}
       href={`/channels/${server.id}`}
