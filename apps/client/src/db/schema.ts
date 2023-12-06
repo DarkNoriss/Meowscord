@@ -20,6 +20,7 @@ export const servers = pgTable('servers', {
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
   name: varchar('name').notNull(),
+  imageUrl: varchar('image_url'),
 });
 
 export const userServers = pgTable(
