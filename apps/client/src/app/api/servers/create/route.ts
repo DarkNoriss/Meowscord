@@ -8,7 +8,7 @@ import { createFakeServer } from '@/lib/mock';
 
 export async function POST() {
   const serverId = nanoid();
-  const { name } = createFakeServer();
+  const { name, imageUrl } = createFakeServer();
   const { userId } = auth();
 
   if (!userId) {
@@ -19,7 +19,7 @@ export async function POST() {
     return new Response('Invalid server name', { status: 400 });
   }
 
-  const newServer = { id: serverId, ownerId: userId, name };
+  const newServer = { id: serverId, ownerId: userId, name, imageUrl };
   const junction = { userId, serverId };
 
   await db.transaction(async (trx) => {
