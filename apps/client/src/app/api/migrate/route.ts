@@ -1,4 +1,4 @@
-import { migrateDb } from '@/lib/db-migrate';
+import { migrateDb } from '@/db/migrate';
 
 export async function POST() {
   await migrateDb();
