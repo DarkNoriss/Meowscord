@@ -1,6 +1,5 @@
 import { faker } from '@faker-js/faker';
 
-import type { ServerType } from '@/types/server';
 import type { UserType } from '@/types/user';
 import { UserStatuses } from '@/types/user';
 
@@ -17,18 +16,14 @@ export const generateFakeFriends = (numberOfFriends: number): UserType[] => {
   }));
 };
 
-export const generateFakeServers = (numberOfServers: number): ServerType[] => {
-  return Array.from({ length: numberOfServers }, (_) => ({
-    id: generateFakeId(),
-    name: faker.animal.cat(),
-    photoUrl: faker.image.urlPicsumPhotos({ height: 64, width: 64 }),
-    messageCount: 0,
-  }));
-};
-
 export const createFakeServer = () => {
   return {
     id: generateFakeId(),
     name: faker.animal.cat(),
+    imageUrl: faker.image.urlLoremFlickr({
+      height: 64,
+      width: 64,
+      category: 'cat',
+    }),
   };
 };
