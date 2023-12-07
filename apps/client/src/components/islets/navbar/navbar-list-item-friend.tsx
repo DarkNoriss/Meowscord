@@ -1,6 +1,7 @@
 'use client';
 
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
 
 import { Button } from '@/components/ui/Button';
 import {
@@ -10,14 +11,17 @@ import {
 } from '@/components/ui/Tooltip';
 
 const NavbarServerItemFriend = () => {
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
-    // mutationFn: () => {
-    //   return axios.post('/api/servers/create');
-    // },
-    // onSuccess: () => {
-    //   queryClient.invalidateQueries({ queryKey: ['servers'] });
-    // },
+    mutationFn: () => {
+      return axios.post('/api/user/create');
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['servers'] });
+    },
   });
+
   return (
     <Tooltip>
       <TooltipTrigger asChild>
