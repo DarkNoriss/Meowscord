@@ -1,5 +1,25 @@
-import { bigint, pgTable, primaryKey, varchar } from 'drizzle-orm/pg-core';
+import {
+  bigint,
+  pgEnum,
+  pgTable,
+  primaryKey,
+  varchar,
+} from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm/relations';
+
+//
+// ENUMS
+//
+
+export const statusEnum = pgEnum('status', [
+  'online',
+  'idle',
+  'dnd',
+  'offline',
+  'mobile',
+  'pending',
+  'blocked',
+]);
 
 //
 // SCHEMAS
@@ -12,6 +32,8 @@ export const users = pgTable('users', {
   username: varchar('username').notNull(),
   imageUrl: varchar('image_url').notNull(),
   createdAt: bigint('created_at', { mode: 'number' }).notNull(),
+  bio: varchar('bio'),
+  status: statusEnum('status').default('online').notNull(),
 });
 
 export const servers = pgTable('servers', {
@@ -61,13 +83,53 @@ export const userFriends = pgTable(
   },
 );
 
+export const userPending = pgTable(
+  'user_pending',
+  {
+    userId: varchar('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    pendingId: varchar('pending_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({
+        columns: [table.userId, table.pendingId],
+      }),
+    };
+  },
+);
+
+export const userBlocked = pgTable(
+  'user_blocked',
+  {
+    userId: varchar('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    blockedId: varchar('blocked_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({
+        columns: [table.userId, table.blockedId],
+      }),
+    };
+  },
+);
+
 //
 // RELATIONS
 //
 
 export const userRelations = relations(users, ({ many }) => ({
   servers: many(servers),
-  // friends: many(users),
+  friends: many(users),
+  pending: many(users),
+  blocked: many(users),
 }));
 
 export const serverRelations = relations(servers, ({ one, many }) => ({
