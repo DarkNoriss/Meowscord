@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
-import type { WebhookEvent } from '@clerk/nextjs/server';
+import type { UserJSON, WebhookEvent } from '@clerk/nextjs/server';
+import { eq } from 'drizzle-orm';
 import { headers } from 'next/headers';
 import { Webhook } from 'svix';
 
-import { db } from '@/lib/db';
-import { users } from '@/models/schema';
+import { db } from '@/db/index';
+import { users } from '@/db/schema';
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -59,27 +60,25 @@ export async function POST(req: Request) {
   // console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
   // console.log('Webhook body:', body);
 
-  switch (evt.type) {
-    case 'user.created': {
-      const {
-        id,
-        first_name: firstName,
-        last_name: lastName,
-        username,
-        image_url: imageUrl,
-        created_at: createdAt,
-      } = evt.data;
+  const { data, type } = evt;
 
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const { id, first_name, last_name, username, image_url, created_at } =
+    data as UserJSON;
+
+  const user = {
+    id,
+    firstName: first_name,
+    lastName: last_name,
+    username: username || '',
+    imageUrl: image_url,
+    createdAt: created_at,
+  };
+
+  switch (type) {
+    case 'user.created': {
       try {
         console.log('Trying to create user');
-        const user = {
-          id,
-          firstName,
-          lastName,
-          username: username || '',
-          imageUrl,
-          createdAt,
-        };
 
         await db.insert(users).values(user);
         console.log('User created!');
@@ -89,8 +88,30 @@ export async function POST(req: Request) {
       }
       break;
     }
-    case 'user.updated':
-    case 'user.deleted':
+    case 'user.updated': {
+      try {
+        console.log('Trying to update user');
+
+        await db.update(users).set(user).where(eq(users.id, id));
+        console.log('User updated!');
+      } catch (error) {
+        console.error(error);
+        return new Response('Error updating user', { status: 500 });
+      }
+      break;
+    }
+    case 'user.deleted': {
+      try {
+        console.log('Trying to delete user');
+
+        await db.delete(users).where(eq(users.id, id));
+        console.log('User deleted!');
+      } catch (error) {
+        console.error(error);
+        return new Response('Error deleting user', { status: 500 });
+      }
+      break;
+    }
     default:
       break;
   }
