@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
+import { nanoid } from 'nanoid';
 
-import type { UserType } from '@/types/user';
+import type { User, UserType } from '@/types/user';
 import { UserStatuses } from '@/types/user';
 
 const generateFakeId = () =>
@@ -14,6 +15,19 @@ export const generateFakeFriends = (numberOfFriends: number): UserType[] => {
     avatar: faker.image.avatarGitHub(),
     status: faker.helpers.arrayElement(Object.values(UserStatuses)),
   }));
+};
+
+export const generateFakeUser = (): User => {
+  return {
+    id: nanoid(),
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
+    username: faker.internet.userName(),
+    imageUrl: faker.image.avatarGitHub(),
+    createdAt: faker.date.past().getTime(),
+    bio: null,
+    status: 'online',
+  };
 };
 
 export const createFakeServer = () => {
