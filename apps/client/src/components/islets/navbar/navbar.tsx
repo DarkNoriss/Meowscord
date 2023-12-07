@@ -2,6 +2,7 @@ import '@/styles/module.css';
 
 import NavbarList from '@/components/islets/navbar/navbar-list';
 import NavbarListItemAdd from '@/components/islets/navbar/navbar-list-item-add';
+import NavbarListItemDelete from '@/components/islets/navbar/navbar-list-item-delete';
 import NavbarServerItemFriend from '@/components/islets/navbar/navbar-list-item-friend';
 import NavbarServerItemLogo from '@/components/islets/navbar/navbar-list-item-logo';
 import NavbarServerItemMigrate from '@/components/islets/navbar/navbar-list-item-migrate';
@@ -18,11 +19,12 @@ const Navbar = () => {
         <NavbarServerItemLogo />
         <Separator className="mx-auto mb-2 h-[2px] w-8" />
         <NavbarList />
-        <NavbarListItemAdd />
         {isDev && (
           <>
+            <NavbarListItemAdd />
             <NavbarServerItemMigrate />
             <NavbarServerItemFriend />
+            <NavbarListItemDelete />
           </>
         )}
       </TooltipProvider>
