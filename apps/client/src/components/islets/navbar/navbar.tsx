@@ -22,9 +22,9 @@ const Navbar = () => {
         {isDev && (
           <>
             <NavbarListItemAdd />
-            <NavbarServerItemMigrate />
-            <NavbarServerItemFriend />
             <NavbarListItemDelete />
+            <NavbarServerItemFriend />
+            <NavbarServerItemMigrate />
           </>
         )}
       </TooltipProvider>
