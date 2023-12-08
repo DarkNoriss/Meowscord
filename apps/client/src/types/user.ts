@@ -1,4 +1,4 @@
-import type { users } from '@/db/schema';
+import type { statusEnum, users } from '@/db/schema';
 
 export enum UserStatuses {
   Online = 'online',
@@ -40,3 +40,5 @@ export type UserType = {
 };
 
 export type User = typeof users.$inferSelect;
+
+export type UserStatus = typeof statusEnum.enumValues;
