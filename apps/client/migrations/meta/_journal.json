@@ -50,6 +50,13 @@
       "when": 1701988138665,
       "tag": "0006_sour_mentallo",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1702006167619,
+      "tag": "0007_youthful_boom_boom",
+      "breakpoints": true
     }
   ]
 }
