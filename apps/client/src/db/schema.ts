@@ -43,6 +43,22 @@ export const servers = pgTable('servers', {
   imageUrl: varchar('image_url'),
 });
 
+export const category = pgTable('category', {
+  id: varchar('id').primaryKey().notNull(),
+  serverId: varchar('server_id')
+    .notNull()
+    .references(() => servers.id, { onDelete: 'cascade' }),
+  name: varchar('name').notNull(),
+});
+
+export const channels = pgTable('channels', {
+  id: varchar('id').primaryKey().notNull(),
+  serverId: varchar('server_id')
+    .notNull()
+    .references(() => servers.id, { onDelete: 'cascade' }),
+  name: varchar('name').notNull(),
+});
+
 export const userServers = pgTable(
   'user_servers',
   {
@@ -119,6 +135,41 @@ export const userBlocked = pgTable(
   },
 );
 
+export const directMessages = pgTable('direct_messages', {
+  id: varchar('id').primaryKey().notNull(),
+  userId: varchar('user_id')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  friendId: varchar('friend_id')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  lastMessage: bigint('created_at', { mode: 'number' }),
+});
+
+export const channelMessage = pgTable('message', {
+  id: varchar('id').primaryKey().notNull(),
+  channelId: varchar('channel_id')
+    .notNull()
+    .references(() => channels.id, { onDelete: 'cascade' }),
+  userId: varchar('user_id')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  content: varchar('content').notNull(),
+  createdAt: bigint('created_at', { mode: 'number' }).notNull(),
+});
+
+export const dmMessage = pgTable('dm_message', {
+  id: varchar('id').primaryKey().notNull(),
+  userId: varchar('user_id')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  friendId: varchar('friend_id')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  content: varchar('content').notNull(),
+  createdAt: bigint('created_at', { mode: 'number' }).notNull(),
+});
+
 //
 // RELATIONS
 //
@@ -128,6 +179,7 @@ export const userRelations = relations(users, ({ many }) => ({
   friends: many(users),
   pending: many(users),
   blocked: many(users),
+  directMessages: many(directMessages),
 }));
 
 export const serverRelations = relations(servers, ({ one, many }) => ({
@@ -136,6 +188,28 @@ export const serverRelations = relations(servers, ({ one, many }) => ({
     references: [users.id],
   }),
   users: many(userServers),
+  categories: many(category),
+  channels: many(channels),
+}));
+
+export const categoryRelations = relations(category, ({ one, many }) => ({
+  server: one(servers, {
+    fields: [category.serverId],
+    references: [servers.id],
+  }),
+  channels: many(channels),
+}));
+
+export const channelRelations = relations(channels, ({ one, many }) => ({
+  server: one(servers, {
+    fields: [channels.serverId],
+    references: [servers.id],
+  }),
+  category: one(category, {
+    fields: [channels.id],
+    references: [category.id],
+  }),
+  channelMessages: many(channelMessage),
 }));
 
 export const userServerRelations = relations(userServers, ({ one }) => ({
@@ -146,5 +220,60 @@ export const userServerRelations = relations(userServers, ({ one }) => ({
   server: one(servers, {
     fields: [userServers.serverId],
     references: [servers.id],
+  }),
+}));
+
+export const userFriendRelations = relations(userFriends, ({ one }) => ({
+  user: one(users, {
+    fields: [userFriends.userId],
+    references: [users.id],
+  }),
+  friend: one(users, {
+    fields: [userFriends.friendId],
+    references: [users.id],
+  }),
+}));
+
+export const directMessagesRelations = relations(directMessages, ({ one }) => ({
+  user: one(users, {
+    fields: [directMessages.userId],
+    references: [users.id],
+  }),
+  friend: one(users, {
+    fields: [directMessages.friendId],
+    references: [users.id],
+  }),
+}));
+
+export const channelMessageRelations = relations(channelMessage, ({ one }) => ({
+  channel: one(channels, {
+    fields: [channelMessage.channelId],
+    references: [channels.id],
+  }),
+  user: one(users, {
+    fields: [channelMessage.userId],
+    references: [users.id],
+  }),
+}));
+
+export const userPendingRelations = relations(userPending, ({ one }) => ({
+  user: one(users, {
+    fields: [userPending.userId],
+    references: [users.id],
+  }),
+  pending: one(users, {
+    fields: [userPending.pendingId],
+    references: [users.id],
+  }),
+}));
+
+export const userBlockedRelations = relations(userBlocked, ({ one }) => ({
+  user: one(users, {
+    fields: [userBlocked.userId],
+    references: [users.id],
+  }),
+  blocked: one(users, {
+    fields: [userBlocked.blockedId],
+    references: [users.id],
   }),
 }));
