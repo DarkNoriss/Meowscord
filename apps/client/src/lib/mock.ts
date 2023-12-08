@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { nanoid } from 'nanoid';
 
+import { statusEnum } from '@/db/schema';
 import type { User, UserType } from '@/types/user';
 import { UserStatuses } from '@/types/user';
 
@@ -26,7 +27,7 @@ export const generateFakeUser = (): User => {
     imageUrl: faker.image.avatarGitHub(),
     createdAt: faker.date.past().getTime(),
     bio: null,
-    status: 'online',
+    status: faker.helpers.arrayElement(statusEnum.enumValues),
   };
 };
 
