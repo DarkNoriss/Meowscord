@@ -24,20 +24,20 @@ export async function POST() {
 
   // create 2 categories for the server with 2 default channels
 
-  const categoryText = { id: nanoid(), name: 'text channels', serverId };
-  const categoryVoice = { id: nanoid(), name: 'voice channels', serverId };
+  // const categoryText = { id: nanoid(), name: 'text channels', serverId };
+  // const categoryVoice = { id: nanoid(), name: 'voice channels', serverId };
 
-  const channelText = {
-    id: nanoid(),
-    name: 'general',
-    categoryId: categoryText.id,
-  };
+  // const channelText = {
+  //   id: nanoid(),
+  //   name: 'general',
+  //   categoryId: categoryText.id,
+  // };
 
-  const channelVoice = {
-    id: nanoid(),
-    name: 'General',
-    categoryId: categoryVoice.id,
-  };
+  // const channelVoice = {
+  //   id: nanoid(),
+  //   name: 'General',
+  //   categoryId: categoryVoice.id,
+  // };
 
   await db.transaction(async (trx) => {
     await trx.insert(servers).values(newServer);
