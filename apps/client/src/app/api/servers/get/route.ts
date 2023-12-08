@@ -15,7 +15,7 @@ export async function GET() {
   const serversData = (await db
     .select({ id: servers.id, name: servers.name })
     .from(userServers)
-    .leftJoin(servers, eq(servers.id, userServers.serverId))
+    .innerJoin(servers, eq(servers.id, userServers.serverId))
     .where(eq(userServers.userId, userId))) as ServerWithoutOwner[];
 
   return new Response(JSON.stringify(serversData), { status: 200 });
