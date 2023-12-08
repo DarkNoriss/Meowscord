@@ -51,7 +51,15 @@ export const category = pgTable('category', {
   name: varchar('name').notNull(),
 });
 
-export const channels = pgTable('channels', {
+export const textChannels = pgTable('text_channels', {
+  id: varchar('id').primaryKey().notNull(),
+  serverId: varchar('server_id')
+    .notNull()
+    .references(() => servers.id, { onDelete: 'cascade' }),
+  name: varchar('name').notNull(),
+});
+
+export const voiceChannels = pgTable('voice_channels', {
   id: varchar('id').primaryKey().notNull(),
   serverId: varchar('server_id')
     .notNull()
@@ -146,11 +154,11 @@ export const directMessages = pgTable('direct_messages', {
   lastMessage: bigint('created_at', { mode: 'number' }),
 });
 
-export const channelMessage = pgTable('message', {
+export const textChannelMessage = pgTable('message', {
   id: varchar('id').primaryKey().notNull(),
   channelId: varchar('channel_id')
     .notNull()
-    .references(() => channels.id, { onDelete: 'cascade' }),
+    .references(() => textChannels.id, { onDelete: 'cascade' }),
   userId: varchar('user_id')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
@@ -189,7 +197,8 @@ export const serverRelations = relations(servers, ({ one, many }) => ({
   }),
   users: many(userServers),
   categories: many(category),
-  channels: many(channels),
+  textThannels: many(textChannels),
+  voiceChannels: many(voiceChannels),
 }));
 
 export const categoryRelations = relations(category, ({ one, many }) => ({
@@ -197,19 +206,20 @@ export const categoryRelations = relations(category, ({ one, many }) => ({
     fields: [category.serverId],
     references: [servers.id],
   }),
-  channels: many(channels),
+  textThannels: many(textChannels),
+  voiceChannels: many(voiceChannels),
 }));
 
-export const channelRelations = relations(channels, ({ one, many }) => ({
+export const channelRelations = relations(textChannels, ({ one, many }) => ({
   server: one(servers, {
-    fields: [channels.serverId],
+    fields: [textChannels.serverId],
     references: [servers.id],
   }),
   category: one(category, {
-    fields: [channels.id],
+    fields: [textChannels.id],
     references: [category.id],
   }),
-  channelMessages: many(channelMessage),
+  textChannelMessages: many(textChannelMessage),
 }));
 
 export const userServerRelations = relations(userServers, ({ one }) => ({
@@ -245,16 +255,19 @@ export const directMessagesRelations = relations(directMessages, ({ one }) => ({
   }),
 }));
 
-export const channelMessageRelations = relations(channelMessage, ({ one }) => ({
-  channel: one(channels, {
-    fields: [channelMessage.channelId],
-    references: [channels.id],
+export const channelMessageRelations = relations(
+  textChannelMessage,
+  ({ one }) => ({
+    channel: one(textChannels, {
+      fields: [textChannelMessage.channelId],
+      references: [textChannels.id],
+    }),
+    user: one(users, {
+      fields: [textChannelMessage.userId],
+      references: [users.id],
+    }),
   }),
-  user: one(users, {
-    fields: [channelMessage.userId],
-    references: [users.id],
-  }),
-}));
+);
 
 export const userPendingRelations = relations(userPending, ({ one }) => ({
   user: one(users, {
