@@ -1,13 +1,15 @@
 // import Image from 'next/image';
 
-import type { UserType } from '@/types/user';
+import type { User } from '@/types/user';
 
-type DMNavmenuFriendListItemProps = { friendData: UserType };
+type DMNavmenuFriendListItemProps = {
+  friendData: User;
+};
 
 const DMNavmenuFriendListItem = ({
   friendData,
 }: DMNavmenuFriendListItemProps) => {
-  const { fullName } = friendData;
+  const { username } = friendData;
 
   return (
     <div className="flex h-[42px] items-center px-3 py-1">
@@ -20,7 +22,7 @@ const DMNavmenuFriendListItem = ({
           alt={fullName}
         /> */}
       </div>
-      <span className="truncate text-base text-muted">{fullName}</span>
+      <span className="truncate text-base text-muted">{username}</span>
     </div>
   );
 };
