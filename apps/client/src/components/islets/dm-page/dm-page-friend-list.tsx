@@ -6,39 +6,29 @@ import DMPageFriendListItem from '@/components/islets/dm-page/dm-page-friend-lis
 import DMPageFriendListLabel from '@/components/islets/dm-page/dm-page-friend-list-label';
 import DMPageFriendSearch from '@/components/islets/dm-page/dm-page-friend-search';
 import { useFriendFiltersStore } from '@/stores/filter-store';
-import { type UserType } from '@/types/user';
-
-const filterFunctions = {
-  Online: (friend: UserType) =>
-    friend.status !== 'offline' &&
-    friend.status !== 'pending' &&
-    friend.status !== 'blocked',
-  All: (friend: UserType) =>
-    friend.status !== 'pending' && friend.status !== 'blocked',
-  Pending: (friend: UserType) => friend.status === 'pending',
-  Blocked: (friend: UserType) => friend.status === 'blocked',
-  'Add Friend': () => false,
-};
+import type { User } from '@/types/user';
 
 const DMPageFriendList = () => {
-  const { data } = useQuery<UserType[]>({ queryKey: ['friends'] });
+  const { data } = useQuery<User[]>({ queryKey: ['friends'] });
   const filter = useFriendFiltersStore((state) => state.filter);
 
   if (!data) return null;
 
-  const filterFunction = filterFunctions[filter];
+  const filteredData = data.filter((friend: User) => {
+    return (
+      filter === 'all' || (filter === 'online' && friend.status !== 'offline')
+    );
+  });
 
-  const filteredData: UserType[] =
-    data
-      ?.filter(filterFunction)
-      .sort((a, b) => a.fullName.localeCompare(b.fullName)) ?? [];
+  const sortedData: User[] =
+    filteredData.sort((a, b) => a.username.localeCompare(b.username)) ?? [];
 
   return (
     <>
       <DMPageFriendSearch />
-      <DMPageFriendListLabel count={filteredData.length} />
+      <DMPageFriendListLabel count={sortedData.length} />
       <div className="mt-2 h-full overflow-y-auto pb-2">
-        {filteredData.map((friend: UserType) => (
+        {sortedData.map((friend: User) => (
           <DMPageFriendListItem friendData={friend} key={friend.id} />
         ))}
       </div>

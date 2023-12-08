@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-export type Filters = 'Online' | 'All' | 'Pending' | 'Blocked' | 'Add Friend';
+export type Filters = 'online' | 'all' | 'pending' | 'blocked' | 'add friend';
 
 type FiltersStoreType = {
   filter: Filters;
@@ -8,6 +8,6 @@ type FiltersStoreType = {
 };
 
 export const useFriendFiltersStore = create<FiltersStoreType>((set) => ({
-  filter: 'Online',
+  filter: 'online',
   setFilter: (filter) => set({ filter }),
 }));

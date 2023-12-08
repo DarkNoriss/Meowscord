@@ -18,15 +18,15 @@ const DMPageHeaderFilterButton = ({
   const setFilter = useFriendFiltersStore((state) => state.setFilter);
 
   const handleOnClick = () => {
-    if (filter === 'Add Friend' && label === 'Add Friend') return;
+    if (filter === 'add friend' && label === 'add friend') return;
     setFilter(label);
   };
 
   const baseClasses =
-    'h-6 mx-2 text-base px-2 font-medium hover:text-primary hover:bg-button-hover/25';
+    'h-6 mx-2 text-base px-2 font-medium hover:text-primary hover:bg-button-hover/25 capitalize';
 
   const isActive = filter === label;
-  const isAddFriend = label === 'Add Friend';
+  const isAddFriend = label === 'add friend';
 
   const activeClass = isActive
     ? 'bg-button-hover/60 cursor-default'

@@ -7,11 +7,11 @@ import { type Filters } from '@/stores/filter-store';
 
 const DMPageHeader = () => {
   const filters: Filters[] = [
-    'Online',
-    'All',
-    'Pending',
-    'Blocked',
-    'Add Friend',
+    'online',
+    'all',
+    'pending',
+    'blocked',
+    'add friend',
   ];
 
   return (
