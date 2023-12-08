@@ -4,14 +4,14 @@ import { HiOutlineDotsVertical } from 'react-icons/hi';
 // import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
 import { Separator } from '@/components/ui/Separator';
 import { t } from '@/lib/i18n';
-import type { UserType } from '@/types/user';
+import type { User } from '@/types/user';
 
 type DMPageFriendListItemProps = {
-  friendData: UserType;
+  friendData: User;
 };
 
 const DMPageFriendListItem = ({ friendData }: DMPageFriendListItemProps) => {
-  const { fullName, status } = friendData;
+  const { username, status } = friendData;
 
   return (
     <div className="ml-[30px] mr-5">
@@ -26,7 +26,7 @@ const DMPageFriendListItem = ({ friendData }: DMPageFriendListItemProps) => {
           </div>
           <div className="flex flex-col">
             <span className="truncate text-base font-semibold text-primary">
-              {fullName}
+              {username}
             </span>
             <span className="truncate text-sm font-medium text-muted">
               {t(`user.status.${status}`)}
