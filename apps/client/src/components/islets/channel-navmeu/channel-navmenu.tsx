@@ -1,10 +1,10 @@
 import NavmenuWrapper from '@/components/layout/navmenu/navmenu-wrapper';
-import type { ServerType } from '@/types/server';
+import type { Server } from '@/types/server';
 
 import ChannelNavmenuHeader from './channel-navmenu-header';
 
 type ChannelNavmenuProps = {
-  channelData: ServerType;
+  channelData: Server;
 };
 
 const ChannelNavmenu = ({ channelData }: ChannelNavmenuProps) => {
