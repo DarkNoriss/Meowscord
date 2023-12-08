@@ -1,10 +1,10 @@
 import { create } from 'zustand';
 
-import type { UserType } from '@/types/user';
+import type { User } from '@/types/user';
 
 type FriendsStoreType = {
-  friends: null | UserType[];
-  setFriends: (friends: UserType[]) => void;
+  friends: null | User[];
+  setFriends: (friends: User[]) => void;
 };
 
 export const useFriendsStore = create<FriendsStoreType>((set) => ({
