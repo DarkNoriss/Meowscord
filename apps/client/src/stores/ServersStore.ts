@@ -1,10 +1,10 @@
 import { create } from 'zustand';
 
-import type { ServerType } from '@/types/server';
+import type { Server } from '@/types/server';
 
 type ServersStoreType = {
-  servers: null | ServerType[];
-  setServers: (servers: ServerType[]) => void;
+  servers: null | Server[];
+  setServers: (servers: Server[]) => void;
 };
 
 export const useServersStore = create<ServersStoreType>((set) => ({
