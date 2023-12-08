@@ -17,8 +17,6 @@ export const statusEnum = pgEnum('status', [
   'dnd',
   'offline',
   'mobile',
-  'pending',
-  'blocked',
 ]);
 
 //
