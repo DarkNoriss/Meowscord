@@ -4,10 +4,10 @@ import { useQuery } from '@tanstack/react-query';
 import { LuPlus } from 'react-icons/lu';
 
 import DMNavmenuFriendListItem from '@/components/islets/dm-navmenu/dm-navmenu-friend-list-item';
-import type { UserType } from '@/types/user';
+import type { User } from '@/types/user';
 
 const DMNavmenuFriendsList = () => {
-  const { data } = useQuery<UserType[]>({ queryKey: ['friends'] });
+  const { data } = useQuery<User[]>({ queryKey: ['friends'] });
 
   return (
     <>
@@ -16,7 +16,7 @@ const DMNavmenuFriendsList = () => {
         <LuPlus size={16} />
       </div>
       <ul>
-        {data?.map((friend: UserType) => (
+        {data?.map((friend: User) => (
           <li key={friend.id}>
             <DMNavmenuFriendListItem friendData={friend} />
           </li>
